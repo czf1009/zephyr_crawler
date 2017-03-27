@@ -9,16 +9,6 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
-
-'''
-DOWNLOADER_MIDDLEWARES = {
-    'zephyr_crawler.downloaders.downloader_middle
-    'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 110
-}
-'''
-# DOWNLOADER_CLIENTCONTEXTFACTORY = 'zephyr_crawler.context.CustomContextFactory'
-
-
 BOT_NAME = 'zephyr_crawler'
 
 SPIDER_MODULES = ['zephyr_crawler.spiders']
@@ -28,7 +18,7 @@ DEPTH_LIMIT = 2
 
 REDIRECT_ENABLED = False
 
-DOWNLOAD_TIMEOUT = 100
+DOWNLOAD_TIMEOUT = 10
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'zephyr_crawler (+http://www.yourdomain.com)'
@@ -74,8 +64,10 @@ DEFAULT_REQUEST_HEADERS = {
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-   'zephyr_crawler.middlewares.UserAgentMiddleware': 401,
-   'zephyr_crawler.middlewares.ProxyMiddleware': 402
+    'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware': 350,
+    'zephyr_crawler.middlewares.UserAgentMiddleware': 401,
+    'zephyr_crawler.HttpProxyMiddleware.HttpProxyMiddleware': 543,
+    'zephyr_crawler.middlewares.ProxyMiddleware': None
 }
 
 # Enable or disable extensions
