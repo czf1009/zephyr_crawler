@@ -90,13 +90,13 @@ class BanggoSpider(scrapy.Spider):
         cel = re.search('p_zp_prods:([^}]*})',cel).group(1)
 
         
-	# Transfer " to \" in description
-	desc = re.search('description":.*?"([\s\S]*?)",',cel)
-	if desc:
+        # Transfer " to \" in description
+        desc = re.search('description":.*?"([\s\S]*?)",',cel)
+        if desc:
             description = desc.group(1)
             description_tmp = description.replace('\"','\\\"')
- 	    cel = cel.replace(description,description_tmp)
-					
+            cel = cel.replace(description,description_tmp)
+                                        
 
         body = json.loads(cel,strict=False)
         #Insert stock number and brand

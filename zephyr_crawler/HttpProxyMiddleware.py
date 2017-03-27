@@ -41,16 +41,16 @@ class HttpProxyMiddleware(object):
         # 一个将被设为invalid的代理如果已经成功爬取大于这个参数的页面， 将不会被invalid
         self.invalid_proxy_threshold = 200
         # 从文件读取初始代理
-	if os.path.exists(self.proxy_file):
-	    with open(self.proxy_file, "r") as fd:
-		lines = fd.readlines()            
-		for line in lines:
-		    line = line.strip()
-		    if not line or self.url_in_proxyes("http://" + line):
-			continue
-		    self.proxyes.append({"proxy": "http://"  + line,
-					"valid": True,
-					"count": 0})
+        if os.path.exists(self.proxy_file):
+            with open(self.proxy_file, "r") as fd:
+                lines = fd.readlines()            
+                for line in lines:
+                    line = line.strip()
+                    if not line or self.url_in_proxyes("http://" + line):
+                        continue
+                    self.proxyes.append({"proxy": "http://"  + line,
+                                        "valid": True,
+                                        "count": 0})
 
     @classmethod
     def from_crawler(cls, crawler):
@@ -159,7 +159,7 @@ class HttpProxyMiddleware(object):
         并调整当前proxy_index到下一个有效代理的位置
         """
         if index < self.fixed_proxy: # 可信代理永远不会设为invalid
-	    self.inc_proxy_index()
+            self.inc_proxy_index()
             return
 
         if self.proxyes[index]["valid"]:
