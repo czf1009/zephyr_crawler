@@ -297,8 +297,8 @@ class ProxyMiddleware(object):
 if __name__ == '__main__':
     print '============================='
     proxyMiddleware = ProxyMiddleware()
-    # proxyMiddleware.crawl_proxy()
+    proxyMiddleware.crawl_proxy()
     # proxyMiddleware.test_proxy()
     # proxyMiddleware.inactive_proxy([['104.168.151.65']])
-    print proxyMiddleware.is_need_update()
+    # print proxyMiddleware.is_need_update()
 
