@@ -40,9 +40,14 @@ class BanggoSpider(scrapy.Spider):
         ]
 
     def parse(self, response):
-        yield scrapy.Request(url=response.url, callback=self.next)
+        #　Get total page num
+        total_page_num = response.xpath(u'//a[text()="尾 页"]/@href').extract_first()
+        total_page_num = int(re.search('currentPage=(\d*)',total_page_num).group(1))
+        for i in range(1,total_page_num+1):
+            url = 'http://search.banggo.com/search/a_a.shtml?avn=1&currentPage=%d' % i
+            yield scrapy.Request(url=response.url, callback=self.catelog)
 
-    def next(self, response):
+    def catelog(self, response):
         if not response.body:
             inspect_response(response, self)
         elif response.body == "banned":
@@ -54,10 +59,6 @@ class BanggoSpider(scrapy.Spider):
             link = li.xpath('a[1]/@href').extract_first()
             yield scrapy.Request(link, callback=self.getItem)
 
-        next_url = response.xpath(u'//a[text()="下一页"]/@href').extract_first()
-        next_url = response.urljoin(next_url)
-
-        yield scrapy.Request(next_url, callback=self.next)
 
     def getItem(self,response):
 
