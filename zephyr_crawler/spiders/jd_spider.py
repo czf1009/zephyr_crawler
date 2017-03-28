@@ -14,8 +14,8 @@ class JdSpider(scrapy.Spider):
         'p.3.cn'    # price json
     ]
     start_urls = [
-        # 'https://list.jd.com/list.html?cat=9987,653,655',
-        'https://item.jd.com/4139518.html'
+        'https://list.jd.com/list.html?cat=9987,653,655'
+        # 'https://item.jd.com/4139518.html'
         # 'https://item.jd.com/10921539206.html'
     ]
     custom_settings = {
