@@ -14,8 +14,8 @@ class JdSpider(scrapy.Spider):
         'p.3.cn'    # price json
     ]
     start_urls = [
-        # 'https://list.jd.com/list.html?cat=9987,653,655',
-        'https://item.jd.com/4139518.html'
+        'https://list.jd.com/list.html?cat=9987,653,655'
+        # 'https://item.jd.com/4139518.html'
         # 'https://item.jd.com/10921539206.html'
     ]
     custom_settings = {
@@ -47,10 +47,11 @@ class JdSpider(scrapy.Spider):
 
     def parse(self, response):
         # Get total num of catelog's page
-        page_num = int(re.search(u'共<b>(\d*?)</b>页',response.body).group(1))
+        page_num = int(re.search('共<b>(\d*?)</b>页',response.body).group(1))
         for i in range(1,page_num+1):
             url = 'https://list.jd.com/list.html?cat=9987,653,655&page=%d&sort=sort_rank_asc&trans=1&JL=6_0_0#J_main' % i
             yield scrapy.Request(url=url, callback=self.catelog)
+            
 
     def catelog(self, response):
         # Crawl itempage from catelog
