@@ -1,6 +1,5 @@
 #coding:utf8
 import scrapy
-from zephyr_crawler.items import GoodItem
 from zephyr_crawler.items import CommenItem
 from scrapy.shell import inspect_response
 import json

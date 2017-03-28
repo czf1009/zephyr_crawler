@@ -19,9 +19,10 @@ class CommenItem(object):
         self.conn.close()
         print u'process_commen_item耗时：' + str(time.time()-self.t) + u' 秒'
 
+    ############testing   limit just get good lable item
     #Get items
     def item_get(self):
-        if self.cur.execute('select id,lable,body,date from commen order by date;'):
+        if self.cur.execute('select id,lable,body,date from commen where lable=\'good\' order by date;'):
             return self.cur.fetchall()
         else:
             print '\n\ninsert data ERROR!!!'    
