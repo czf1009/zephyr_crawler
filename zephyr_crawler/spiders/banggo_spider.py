@@ -72,7 +72,7 @@ class BanggoSpider(scrapy.Spider):
             if 'p_zp_prodstype' in i:
                 cel = re.search('{[\s\S]*}',i,0).group(0)
                 break
-        #Delete commented out code
+        #Delete note in code
         for i in re.findall(" //.*",cel):
             cel = cel.replace(i,'')
         #Get stock number
@@ -96,7 +96,6 @@ class BanggoSpider(scrapy.Spider):
             description = desc.group(1)
             description_tmp = description.replace('\"','\\\"')
             cel = cel.replace(description,description_tmp)
-                                        
 
         body = json.loads(cel,strict=False)
         #Insert stock number and brand
