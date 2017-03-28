@@ -47,8 +47,9 @@ class CommenItem(object):
 	self.item_del(len(items))
         self.close_process()
 
+    #  Now just delete good lable item
     def item_del(self,items_len):
-	if self.cur.execute('delete from commen') == items_len:
+	if self.cur.execute('delete from commen where lable=\'good\'') == items_len:
 	    self.conn.commit()
 	    print "\nDelete commen complite.\n"
 	else:
