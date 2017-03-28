@@ -45,7 +45,7 @@ class BanggoSpider(scrapy.Spider):
         total_page_num = int(re.search('currentPage=(\d*)',total_page_num).group(1))
         for i in range(1,total_page_num+1):
             url = 'http://search.banggo.com/search/a_a.shtml?avn=1&currentPage=%d' % i
-            yield scrapy.Request(url=response.url, callback=self.catelog)
+            yield scrapy.Request(url=url, callback=self.catelog)
 
     def catelog(self, response):
         if not response.body:
