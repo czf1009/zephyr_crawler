@@ -212,6 +212,7 @@ class HttpProxyMiddleware(object):
 
         # status不是正常的200而且不在spider声明的正常爬取过程中可能出现的
         # status列表中, 则认为代理无效, 切换代理
+        print '\nprocess_response:\nresponse.status:%s\n\n' % response.status
         if response.status != 200 \
                 and (not hasattr(spider, "website_possible_httpstatus_list") \
                              or response.status not in spider.website_possible_httpstatus_list):
@@ -230,6 +231,8 @@ class HttpProxyMiddleware(object):
         logger.debug("%s exception: %s" % (self.proxyes[request.meta["proxy_index"]]["proxy"], exception))
         request_proxy_index = request.meta["proxy_index"]
 
+
+        print '\nprocess_exception:\nresponse.status:%s\n\n' % response.status
         # 只有当proxy_index>fixed_proxy-1时才进行比较, 这样能保证至少本地直连是存在的.
         if isinstance(exception, self.DONT_RETRY_ERRORS):
             if request_proxy_index > self.fixed_proxy - 1 and self.invalid_proxy_flag: # WARNING 直连时超时的话换个代理还是重试? 这是策略问题
