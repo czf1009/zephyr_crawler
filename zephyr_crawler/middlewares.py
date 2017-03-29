@@ -82,7 +82,7 @@ class ProxyMiddleware(object):
     def crawl_proxy(self):
         self.crawl_proxy_usproxy()
         self.crawl_proxy_kxdaili()
-        print '\ncrawl proxy complete, now has %d active proxy.\n' % self.count_active_proxy()
+        # print '\ncrawl proxy complete, now has %d active proxy.\n' % self.count_active_proxy()
 
     #check is this ip in mysql
     def is_exist(self,ip):
@@ -241,6 +241,7 @@ class ProxyMiddleware(object):
         request.meta['proxy'] = 'https://86.27.56.138:8080'
         return
         '''
+        print 'process_request:\nrequest.status: %d' %request.status
 
         # not enough proxy or time out then crawl proxy
         if self.count_active_proxy()<self.proxys_min or self.is_need_update():

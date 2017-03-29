@@ -54,6 +54,9 @@ class JdSpider(scrapy.Spider):
             
 
     def catelog(self, response):
+        print '\n\nresponse_url : %s\n' %response.url
+        return
+
         # Crawl itempage from catelog
 
         # If bannde then change proxy
