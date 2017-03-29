@@ -66,8 +66,8 @@ DEFAULT_REQUEST_HEADERS = {
 DOWNLOADER_MIDDLEWARES = {
     'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware': 350,
     'zephyr_crawler.middlewares.UserAgentMiddleware': 401,
-    'zephyr_crawler.HttpProxyMiddleware.HttpProxyMiddleware': 543,
-    'zephyr_crawler.middlewares.ProxyMiddleware': None
+    'zephyr_crawler.HttpProxyMiddleware.HttpProxyMiddleware': None,
+    'zephyr_crawler.middlewares.ProxyMiddleware': 544
 }
 
 # Enable or disable extensions

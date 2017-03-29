@@ -163,6 +163,7 @@ class HttpProxyMiddleware(object):
             return
 
         if self.proxyes[index]["valid"]:
+            print "\ninvalidate %s\n" % self.proxyes[index]
             logger.info("invalidate %s" % self.proxyes[index])
             self.proxyes[index]["valid"] = False
             if index == self.proxy_index:
