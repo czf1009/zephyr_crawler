@@ -11,10 +11,12 @@ class JdSpider(scrapy.Spider):
     name = "jd"
     allowed_domains = [
         "jd.com",
-        'p.3.cn'    # price json
+        'p.3.cn',    # price json
+        'm.360buyimg.com'   # json  from    m.jd.com
     ]
     start_urls = [
-        'https://list.jd.com/list.html?cat=9987,653,655'
+        # 'https://list.jd.com/list.html?cat=9987,653,655'
+        'https://so.m.jd.com/ware/searchList.action?_format_=json&stock=0&sort=&&page=1&keyword=手机'
         # 'https://item.jd.com/4139518.html'
         # 'https://item.jd.com/10921539206.html'
     ]
@@ -47,16 +49,29 @@ class JdSpider(scrapy.Spider):
 
     def parse(self, response):
         # Get total num of catelog's page
+
+        # https://m.jd.com
+        page_url = 'https://so.m.jd.com/ware/searchList.action?_format_=json&stock=0&sort=&&page=%d&keyword=手机'
+        value  =json.loads(response.body)['value']
+        wareList1 = json.loads(value)['wareList']
+        page_num = sefl.get_page(wareList1['wareCount'])
+        for i in range(1,page_num+1):
+            url = page_url % i
+            yield scrapy.Request(url=url, callback=self.catelog)
+
+        # https://www.jd.com
+        '''
         page_num = int(re.search('共<b>(\d*?)</b>页',response.body).group(1))
         for i in range(1,page_num+1):
             url = 'https://list.jd.com/list.html?cat=9987,653,655&page=%d&sort=sort_rank_asc&trans=1&JL=6_0_0#J_main' % i
             yield scrapy.Request(url=url, callback=self.catelog)
-            
+        '''
+
+    def get_page(item_num):
+        return int((item_num+10-1)/10)
+     
 
     def catelog(self, response):
-        print '\nresponse_url : %s\n' %response.url
-        return
-
         # Crawl itempage from catelog
 
         # If bannde then change proxy
@@ -67,11 +82,23 @@ class JdSpider(scrapy.Spider):
             req.meta["change_proxy"] = True
             yield req
 
+        # https://m.jd.com
+        value  =json.loads(response.body)['value']
+        wareList1 = json.loads(value)['wareList']
+        items = wareList1['wareList']
+        for i in items
+            item =CommenItem()
+            item['lable'] = u'jd'
+            item['body'] = json.dumps(i)     
+            yield item
+
+        '''
         # getItem url
         items_cel = response.xpath('//div[@id="plist"]/ul/li')
         for item_cel in items_cel:
             item_url = item_cel.xpath('div/div[1]/a/@href').extract_first()
             yield scrapy.Request(item_url, callback=self.getItem)
+        '''
 
     def getItem(self, response):
         # Crawl iteminfo from catelog
