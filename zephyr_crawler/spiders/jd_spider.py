@@ -86,7 +86,7 @@ class JdSpider(scrapy.Spider):
         value  =json.loads(response.body)['value']
         wareList1 = json.loads(value)['wareList']
         items = wareList1['wareList']
-        for i in items
+        for i in items:
             item =CommenItem()
             item['lable'] = u'jd'
             item['body'] = json.dumps(i)     
