@@ -54,7 +54,7 @@ class JdSpider(scrapy.Spider):
         page_url = 'https://so.m.jd.com/ware/searchList.action?_format_=json&stock=0&sort=&&page=%d&keyword=手机'
         value  =json.loads(response.body)['value']
         wareList1 = json.loads(value)['wareList']
-        page_num = sefl.get_page(wareList1['wareCount'])
+        page_num = self.get_page(wareList1['wareCount'])
         for i in range(1,page_num+1):
             url = page_url % i
             yield scrapy.Request(url=url, callback=self.catelog)
@@ -67,7 +67,7 @@ class JdSpider(scrapy.Spider):
             yield scrapy.Request(url=url, callback=self.catelog)
         '''
 
-    def get_page(item_num):
+    def get_page(self,item_num):
         return int((item_num+10-1)/10)
      
 
@@ -87,6 +87,11 @@ class JdSpider(scrapy.Spider):
         wareList1 = json.loads(value)['wareList']
         items = wareList1['wareList']
         for i in items:
+            i = json.dumps(i)
+            i = i.replace('\'','\\\'')
+            i = i.replace('\"','\\\"')
+            i = i.replace('\u','\\u')
+            i = i.replace('\\n','')
             item =CommenItem()
             item['lable'] = u'jd'
             item['body'] = json.dumps(i)     
