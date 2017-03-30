@@ -302,7 +302,7 @@ class ProxyMiddleware(object):
 
 
 if __name__ == '__main__':
-    print '============================='
+    # print '============================='
     proxyMiddleware = ProxyMiddleware()
     proxyMiddleware.crawl_proxy()
     # proxyMiddleware.test_proxy()
