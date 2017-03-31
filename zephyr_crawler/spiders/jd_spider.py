@@ -96,7 +96,7 @@ class JdSpider(scrapy.Spider):
             item['lable'] = u'jd'
             item['body'] = json.dumps(i)     
             yield item
-
+ 
         '''
         # getItem url
         items_cel = response.xpath('//div[@id="plist"]/ul/li')
