@@ -23,6 +23,7 @@ class CommenItem(object):
 
     def process_item(self):
         good = ''
+        jd = ''
         items = self.item_get()
         print '读取数据完成，开始处理。'
         items_len = len(items)
@@ -39,23 +40,24 @@ class CommenItem(object):
                 if not jd:
                     jd = CommenJdItem(self.cur,self.conn)
                 item_body = json.loads(item[2])
-                good.item_insert(item_body,item[3])
+                item_body = json.loads(item_body)
+                jd.item_insert(item_body,item[3])
             else:
                 print 'Error lable: ',item[1]
                 print 'id: ',item['id'],'\n\n'
-        # self.item_del(len(items))
+        self.item_del(len(items))
         self.close_process()
 
     #Get items
     def item_get(self):
-        if self.cur.execute('select id,lable,body,date from commen where lable=\'good\' order by date;'):
+        if self.cur.execute('select id,lable,body,date from commen order by date;'):
             return self.cur.fetchall()
         else:
             print '\n\ninsert data ERROR!!!'    
 
     #  Now just delete good lable item
     def item_del(self,items_len):
-        if self.cur.execute('delete from commen where lable=\'good\';') == items_len:
+        if self.cur.execute('delete from commen where;') == items_len:
             self.conn.commit()
             print "\nDelete commen complite.\n"
         else:
@@ -194,7 +196,7 @@ class CommenJdItem(object):
     def item_insert(self,item,date):
         #process item type & specia charactor
         item = self.item_initial(item)
-        self.insert_jd(item,date)
+        self.insert_jd(item,date) 
         return
     
     def item_initial(self,item):
@@ -208,7 +210,7 @@ class CommenJdItem(object):
     #insert jd
     def insert_jd(self,item,date):
         if self.cur.execute('''
-             insert into good(
+             insert into jd(
                 `ware_id`,
                 `wname`,
                 `jd_price`,
