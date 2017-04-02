@@ -1,6 +1,6 @@
 #coding:utf8
 import scrapy
-from zephyr_crawler.items import CommenItem
+from zephyr_crawler.items import CommonItem
 from scrapy.shell import inspect_response
 import json
 import re
@@ -20,7 +20,7 @@ class BanggoSpider(scrapy.Spider):
         # 'HTTPERROR_ALLOWED_CODES': '302',
         'ROBOTSTXT_OBEY': False,
         'ITEM_PIPELINES': {
-            'zephyr_crawler.pipelines.CommenPipeline': 500
+            'zephyr_crawler.pipelines.CommonPipeline': 500
         },
         'DEPTH_LIMIT': 0,
         # 'DOWNLOAD_DELAY': 1,
@@ -109,7 +109,7 @@ class BanggoSpider(scrapy.Spider):
         body_jsn = body_jsn.replace('\u','\\\u')
         body_jsn = body_jsn.replace('\\n','')
 
-        item = CommenItem()
+        item = CommonItem()
         item['lable'] = u'good'
         item['body'] = body_jsn
 

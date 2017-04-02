@@ -1,6 +1,6 @@
 # coding:utf8
 import scrapy
-from zephyr_crawler.items import CommenItem
+from zephyr_crawler.items import CommonItem
 from scrapy.shell import inspect_response
 import json
 import re
@@ -28,7 +28,7 @@ class JdSpider(scrapy.Spider):
         # 'HTTPERROR_ALLOWED_CODES': '302',
         'ROBOTSTXT_OBEY': False,
         'ITEM_PIPELINES': {
-            'zephyr_crawler.pipelines.CommenPipeline': 500
+            'zephyr_crawler.pipelines.CommonPipeline': 500
         },
         'DEPTH_LIMIT': 0,
         # 'DOWNLOAD_DELAY': 1,
@@ -92,7 +92,7 @@ class JdSpider(scrapy.Spider):
             i = i.replace('\"','\\\"')
             i = i.replace('\u','\\u')
             i = i.replace('\\n','')
-            item =CommenItem()
+            item =CommonItem()
             item['lable'] = u'jd'
             item['body'] = json.dumps(i)     
             yield item
@@ -130,7 +130,7 @@ class JdSpider(scrapy.Spider):
         item_jsn = item_jsn.replace('\u','\\\u')
         item_jsn = item_jsn.replace('\\n','')
 
-        item = CommenItem()
+        item = CommonItem()
         item['lable'] = u'jd_detail'
         item['body'] = item_jsn
 
