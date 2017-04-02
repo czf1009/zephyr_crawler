@@ -129,7 +129,7 @@ class CommenGoodItem(object):
                 `description`,
                 `date_create`,
                 `date_last`
-            ) values(%d,\'%s\',%d,\'%s\',%d,%d,%d,\'%s\',\'%s\',\'%s\',\'%s\');''' 
+            ) values(\'%s\',\'%s\',%d,\'%s\',%d,%d,%d,\'%s\',\'%s\',\'%s\',\'%s\');''' 
             % (item['outerid'],item['name'],brand_id,item['loc'],item['categoryID'],item['subCategoryID'],item['ThirdCategoryID'],item['image'],item['description'],date,date)
         ):
             self.conn.commit()
