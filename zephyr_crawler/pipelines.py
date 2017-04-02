@@ -19,7 +19,7 @@ class CommonPipeline(object):
         self.cur.close()
         self.conn.commit()
         self.conn.close()
-        print u'\n\n程序耗时：' + str(time.time()-self.t) + u' 秒'
+        print u'\n\n程序耗时：' + str((time.time()-self.t)/60) + u' 分'
 
     def process_item(self, item, spider):
         # item['body'] = item['body'.encode('utf-8')]

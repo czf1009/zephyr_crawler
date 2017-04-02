@@ -53,7 +53,7 @@ class CommonItem(object):
         if self.cur.execute('select id,lable,body,date from common order by date;'):
             return self.cur.fetchall()
         else:
-            print '\n\ninsert data ERROR!!!'    
+            print '\n\nget data ERROR!!!'    
 
     #  Now just delete good lable item
     def item_del(self,items_len):

@@ -219,7 +219,7 @@ class ProxyMiddleware(object):
         print '\nAfter test remain %d proxy active.\n' % self.count_active_proxy()
 
     def test_proxy_thread(self, *proxys_part):
-        url_test = 'http://www.baidu.com/js/bdsug.js?v=1.0.3.0'
+        url_test = 'http://www.banggo.com/'
         inactive_ips = []
         for proxy in proxys_part:
             # set proxy
@@ -304,7 +304,7 @@ class ProxyMiddleware(object):
 if __name__ == '__main__':
     # print '============================='
     proxyMiddleware = ProxyMiddleware()
-    proxyMiddleware.crawl_proxy()
-    # proxyMiddleware.test_proxy()
+    # proxyMiddleware.crawl_proxy()
+    proxyMiddleware.test_proxy()
     # proxyMiddleware.inactive_proxy([['104.168.151.65']])
     # print proxyMiddleware.is_need_update()
