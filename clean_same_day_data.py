@@ -39,7 +39,6 @@ class PriceStock(object):
             # same good_id and date_day
             if items[index][1] == items[index-1][1] and items[index][2] == items[index-1][2]:
                 dump_item_ids.append([str(items[index][0])])
-        print dump_item_ids
         self.del_items(dump_item_ids)
         self.cur.close()
         self.conn.close()
