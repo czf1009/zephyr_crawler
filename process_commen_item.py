@@ -34,10 +34,7 @@ class CommenItem(object):
                 if not good:
                     good = CommenGoodItem(self.cur,self.conn)
                 item_body = json.loads(item[2])
-                try:
-                    good.item_insert(item_body,item[3])
-                except:
-                    print item[0]
+                good.item_insert(item_body,item[3])
             elif item[1] == 'jd':
                 if not jd:
                     jd = CommenJdItem(self.cur,self.conn)
@@ -152,7 +149,7 @@ class CommenGoodItem(object):
                 `price_svip`,
                 `stock`,
                 `date`
-            ) values(%d,%f,%f,%f,%f,%d,\'%s\');''' 
+            ) values(\'%s\',%f,%f,%f,%f,%d,\'%s\');''' 
             % (item['outerid'],item['price'],item['value'],item['vipprice'],item['svipprice'],item['stock'],date)
         ):
             self.conn.commit()
@@ -161,7 +158,7 @@ class CommenGoodItem(object):
 
     #Existed in good
     def is_exist(self, id):
-        if self.cur.execute('select * from good where good_id = %d'% id):
+        if self.cur.execute('select * from good where good_id = \'%s\''% id):
             return 1
         else:
             return 0
