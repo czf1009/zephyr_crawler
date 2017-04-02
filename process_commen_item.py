@@ -83,7 +83,10 @@ class CommenGoodItem(object):
     
     def item_initial(self,item):
         #Initial value type
-        item['outerid'] = int(item['outerid'])
+        try:
+            item['outerid'] = int(item['outerid'])
+        except:
+            print item['outerid']
         ids = ['categoryID','subCategoryID','ThirdCategoryID']
         for id in ids:
             if id in item.keys():
