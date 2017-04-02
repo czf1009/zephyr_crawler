@@ -134,7 +134,7 @@ class CommenGoodItem(object):
             print 'insert good error\n'
 
     def update_good_date(self,item,date):
-        self.cur.execute('UPDATE `app_test`.`good` SET `date_last`=\'%s\' WHERE `good_id`=%d;' % (date,item['outerid']))
+        self.cur.execute('UPDATE `app_test`.`good` SET `date_last`=\'%s\' WHERE `good_id`=\'%s\';' % (date,item['outerid']))
         self.conn.commit()
         return
 
