@@ -5,8 +5,8 @@ import sys
 import json
 from zephyr_crawler.connect_mysql import connect_mysql
 
-# Commen processor
-class CommenItem(object):
+# Common processor
+class CommonItem(object):
     def __init__(self):
         self.t = 0
         self.t = time.time()
@@ -17,7 +17,7 @@ class CommenItem(object):
     def close_process(self):
         self.cur.close()
         self.conn.close()
-        print u'process_commen_item耗时：' + str(time.time()-self.t) + u' 秒'
+        print u'process_common_item耗时：' + str(time.time()-self.t) + u' 秒'
 
     ############testing   limit just get good lable item
 
@@ -33,12 +33,12 @@ class CommenItem(object):
                 print '进度： ',items_len,'/',index
             if item[1] == 'good':
                 if not good:
-                    good = CommenGoodItem(self.cur,self.conn)
+                    good = CommonGoodItem(self.cur,self.conn)
                 item_body = json.loads(item[2])
                 good.item_insert(item_body,item[3])
             elif item[1] == 'jd':
                 if not jd:
-                    jd = CommenJdItem(self.cur,self.conn)
+                    jd = CommonJdItem(self.cur,self.conn)
                 item_body = json.loads(item[2])
                 item_body = json.loads(item_body)
                 jd.item_insert(item_body,item[3])
@@ -50,23 +50,23 @@ class CommenItem(object):
 
     #Get items
     def item_get(self):
-        if self.cur.execute('select id,lable,body,date from commen order by date;'):
+        if self.cur.execute('select id,lable,body,date from common order by date;'):
             return self.cur.fetchall()
         else:
             print '\n\ninsert data ERROR!!!'    
 
     #  Now just delete good lable item
     def item_del(self,items_len):
-        if self.cur.execute('delete from commen;') == items_len:
+        if self.cur.execute('delete from common;') == items_len:
             self.conn.commit()
-            print "\nDelete commen complite.\n"
+            print "\nDelete common complite.\n"
         else:
             print "Items_len: " , items_len
-            print "Error number when delete commen!!\n"
+            print "Error number when delete common!!\n"
 
 
 ######################### Good processor
-class CommenGoodItem(object):
+class CommonGoodItem(object):
     def __init__(self,cur,conn):
         self.cur = cur
         self.conn = conn
@@ -187,7 +187,7 @@ class CommenGoodItem(object):
         return
 
 ################################ jd processor
-class CommenJdItem(object):
+class CommonJdItem(object):
     def __init__(self,cur,conn):
         self.cur = cur
         self.conn = conn
@@ -225,5 +225,5 @@ class CommenJdItem(object):
 
 
 if __name__ == '__main__':
-    commenItem = CommenItem()
-    commenItem.process_item()
+    commonItem = CommonItem()
+    commonItem.process_item()

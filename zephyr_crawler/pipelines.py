@@ -5,7 +5,7 @@ from scrapy.exceptions import DropItem
 import sys
 from connect_mysql import connect_mysql
 
-class CommenPipeline(object):
+class CommonPipeline(object):
     def __init__(self):
         self.t = 0
         reload(sys)
@@ -29,7 +29,7 @@ class CommenPipeline(object):
 
     def enter_item(self,lable,body):
         # print '\n\nbody',body,'\n\n'      #TEST
-        if self.cur.execute('insert into commen(`lable`,`body`) values(\'%s\',\'%s\');' % (lable,body)):
+        if self.cur.execute('insert into common(`lable`,`body`) values(\'%s\',\'%s\');' % (lable,body)):
             self.conn.commit()
         else:
             print '\n\ninsert data ERROR!!!'        

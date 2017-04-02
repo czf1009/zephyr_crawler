@@ -32,6 +32,6 @@ class GoodItem(Item):
     price = Field()
     link = Field()
 
-class CommenItem(Item):
+class CommonItem(Item):
     lable = Field()
     body = Field()

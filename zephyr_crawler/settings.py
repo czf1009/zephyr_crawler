@@ -79,7 +79,7 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'zephyr_crawler.pipelines.CommenPipeline': 300,
+   'zephyr_crawler.pipelines.CommonPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
