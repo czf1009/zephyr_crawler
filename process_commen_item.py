@@ -34,7 +34,10 @@ class CommenItem(object):
                 if not good:
                     good = CommenGoodItem(self.cur,self.conn)
                 item_body = json.loads(item[2])
-                good.item_insert(item_body,item[3])
+                try:
+                    good.item_insert(item_body,item[3])
+                except:
+                    print item[0]
             elif item[1] == 'jd':
                 if not jd:
                     jd = CommenJdItem(self.cur,self.conn)
@@ -83,10 +86,7 @@ class CommenGoodItem(object):
     
     def item_initial(self,item):
         #Initial value type
-        try:
-            item['outerid'] = int(item['outerid'])
-        except:
-            print item['outerid']
+        item['outerid'] = int(item['outerid'])
         ids = ['categoryID','subCategoryID','ThirdCategoryID']
         for id in ids:
             if id in item.keys():
