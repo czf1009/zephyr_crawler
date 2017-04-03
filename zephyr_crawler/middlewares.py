@@ -150,7 +150,7 @@ class ProxyMiddleware(object):
     def inactive_proxy(self, ip):
         if self.cur.executemany('UPDATE `app_test`.`proxy` SET `is_active`=\'0\' WHERE `ip`=%s;', ip):
             self.conn.commit()
-            print 'ip inactive: %s\n' % ip
+            # print 'ip inactive: %s\n' % ip
         else:
             print '\ninactive_proxy faild.\nip:\n', ip, '\n'
 
@@ -276,7 +276,6 @@ class ProxyMiddleware(object):
             logger.info('use proxy:%s\n' % request.meta['proxy'])
 
     def process_response(self, request, response, spider):
-        print '\nprocess_reaponse\nresponse.status: %d\n' % response.status
         # check response.status
         if response.status != 200 \
             and (not hasattr(spider, 'website_possible_httpstatus_list')
@@ -291,7 +290,6 @@ class ProxyMiddleware(object):
             return response
 
     def process_exception(self, request, exception, spider):
-        print '\nprocess_exception\n'
         if isinstance(exception, self.DONT_RETRY_ERRORS):
             ip = request.meta['proxy'].split(':')[1]
             ip = ip.replace('//', '')
