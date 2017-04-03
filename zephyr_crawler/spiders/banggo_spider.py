@@ -69,7 +69,7 @@ class BanggoSpider(scrapy.Spider):
 
         #Get target cel
         for i in response.xpath("//script/text()").extract():
-            if 'p_zp_prodstype' in i:
+            if 'outerid' in i:
                 cel = re.search('{[\s\S]*}',i,0).group(0)
                 break
         #Delete note in code
