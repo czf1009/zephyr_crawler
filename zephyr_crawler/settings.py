@@ -19,6 +19,9 @@ DEPTH_LIMIT = 2
 REDIRECT_ENABLED = False
 
 DOWNLOAD_TIMEOUT = 10
+RETRY_ENABLED = True
+RETRY_TIMES = 30
+
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'zephyr_crawler (+http://www.yourdomain.com)'
@@ -66,7 +69,7 @@ DEFAULT_REQUEST_HEADERS = {
 DOWNLOADER_MIDDLEWARES = {
     'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware': 350,
     'zephyr_crawler.middlewares.UserAgentMiddleware': 401,
-    'zephyr_crawler.HttpProxyMiddleware.HttpProxyMiddleware': 543,
+    'zephyr_crawler.HttpProxyMiddleware.HttpProxyMiddleware': None,
     'zephyr_crawler.middlewares.ProxyMiddleware': None
 }
 

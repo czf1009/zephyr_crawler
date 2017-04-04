@@ -16,9 +16,6 @@ class BanggoSpider(scrapy.Spider):
     custom_settings = {
         'COOKIES_DEBUG': False,
         'COOKIES_ENABLED': False,
-        #'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0',
-        # 'REDIRECT_ENABLED': False,
-        # 'HTTPERROR_ALLOWED_CODES': '302',
         'ROBOTSTXT_OBEY': False,
         'ITEM_PIPELINES': {
             'zephyr_crawler.pipelines.CommonPipeline': 500
@@ -26,8 +23,6 @@ class BanggoSpider(scrapy.Spider):
         'DEPTH_LIMIT': 0,
         # 'DOWNLOAD_DELAY': 1,
         # 'REDIRECT_ENABLED': False,
-        'RETRY_ENABLED': True,
-        'RETRY_TIMES': 10,
     }
 
     def __init__(self):
@@ -79,7 +74,7 @@ class BanggoSpider(scrapy.Spider):
                 break
         if not cel:
             logging.error('%s get script faild!' % response.url)
-            with open(response.url,'w') as f:
+            with open(response.url.split('/')[-1],'w') as f:
                 f.write(response.body)
             return
         #Delete note in code
