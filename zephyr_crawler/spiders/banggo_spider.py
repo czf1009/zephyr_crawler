@@ -11,7 +11,7 @@ class BanggoSpider(scrapy.Spider):
     name = "banggo"
     allowed_domains = ["banggo.com"]
     start_urls = [
-        'http://search.banggo.com/search/a_a.shtml?avn=1&currentPage=17'
+        'http://search.banggo.com/search/a_a.shtml?avn=1&currentPage=1'
     ]
     custom_settings = {
         'COOKIES_DEBUG': False,
@@ -41,6 +41,7 @@ class BanggoSpider(scrapy.Spider):
         ]
 
     def parse(self, response):
+        '''
         url = 'http://www.banggo.com/goods/882065.shtml'
         yield scrapy.Request(url=url, callback=self.getItem)
         '''
@@ -50,7 +51,6 @@ class BanggoSpider(scrapy.Spider):
         for i in range(1,total_page_num+1):
             url = 'http://search.banggo.com/search/a_a.shtml?avn=1&currentPage=%d' % i
             yield scrapy.Request(url=url, callback=self.catelog)
-        '''
 
     def catelog(self, response):
         if not response.body:
