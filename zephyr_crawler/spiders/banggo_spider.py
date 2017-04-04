@@ -4,13 +4,14 @@ from zephyr_crawler.items import CommonItem
 from scrapy.shell import inspect_response
 import json
 import re
+import logging
 ###
 
 class BanggoSpider(scrapy.Spider):
     name = "banggo"
     allowed_domains = ["banggo.com"]
     start_urls = [
-        'http://search.banggo.com/search/a_a.shtml?avn=1&currentPage=1'
+        'http://search.banggo.com/search/a_a.shtml?avn=1&currentPage=17'
     ]
     custom_settings = {
         'COOKIES_DEBUG': False,
@@ -40,12 +41,16 @@ class BanggoSpider(scrapy.Spider):
         ]
 
     def parse(self, response):
+        url = 'http://www.banggo.com/goods/882065.shtml'
+        yield scrapy.Request(url=url, callback=self.getItem)
+        '''
         #　Get total page num
         total_page_num = response.xpath(u'//a[text()="尾 页"]/@href').extract_first()
         total_page_num = int(re.search('currentPage=(\d*)',total_page_num).group(1))
         for i in range(1,total_page_num+1):
             url = 'http://search.banggo.com/search/a_a.shtml?avn=1&currentPage=%d' % i
             yield scrapy.Request(url=url, callback=self.catelog)
+        '''
 
     def catelog(self, response):
         if not response.body:
@@ -72,6 +77,11 @@ class BanggoSpider(scrapy.Spider):
             if 'outerid' in i:
                 cel = re.search('{[\s\S]*}',i,0).group(0)
                 break
+        if not cel:
+            logging.error('%s get script faild!' % response.url)
+            with open(response.url,'w') as f:
+                f.write(response.body)
+            return
         #Delete note in code
         for i in re.findall(" //.*",cel):
             cel = cel.replace(i,'')
