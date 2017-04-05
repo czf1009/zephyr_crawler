@@ -125,12 +125,13 @@ class JdSpider(scrapy.Spider):
             yield item
  
         '''
+        # used when crawl from pc page
         # getItem url
         items_cel = response.xpath('//div[@id="plist"]/ul/li')
         for item_cel in items_cel:
             item_url = item_cel.xpath('div/div[1]/a/@href').extract_first()
             yield scrapy.Request(item_url, callback=self.getItem)
-        '''
+        
 
     def getItem(self, response):
         # Crawl iteminfo from catelog
@@ -162,6 +163,4 @@ class JdSpider(scrapy.Spider):
         item['body'] = item_jsn
 
         yield item
-
-    def getPrice(slef, response):
-        print response.body.replace(',', ',\n')
+    '''
