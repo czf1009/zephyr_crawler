@@ -100,7 +100,7 @@ class JdCommentSpider(scrapy.Spider):
         logger.info('Wareid:%s    Total_page:%s,start crawl comment.' % (wareid,total_page))
         if jsn['commentCount'] == 0:
             logger.error('This ware(%s) has no comment!!\n' % wareid)
-            yield scrapy.Request(url=comment_url%(wareid,1),meta=meta,dont_filter=True,callback=self.comment_page)
+            # yield scrapy.Request(url=comment_url%(wareid,1),meta=meta,dont_filter=True,callback=self.comment_page)
 
         yield scrapy.Request(url=comment_url%(wareid,1),meta=meta,dont_filter=True,callback=self.comment_page)
 
