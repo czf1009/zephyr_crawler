@@ -17,7 +17,7 @@ class CommonItem(object):
     def close_process(self):
         self.cur.close()
         self.conn.close()
-        print u'process_common_item耗时：' + str(time.time()-self.t) + u' 秒'
+        print u'process_common_item耗时：' + str((time.time()-self.t)/60) + u' 分'
 
     ############testing   limit just get good lable item
 
@@ -57,11 +57,12 @@ class CommonItem(object):
 
     #  Now just delete good lable item
     def item_del(self,items_len):
-        if self.cur.execute('delete from common;') == items_len:
+        del_len = self.cur.execute('delete from common;')
+        if  del_len == items_len:
             self.conn.commit()
             print "\nDelete common complite.\n"
         else:
-            print "Items_len: " , items_len
+            print "Del_len:%s\nItems_len:%s" % (del_len,items_len)
             print "Error number when delete common!!\n"
 
 

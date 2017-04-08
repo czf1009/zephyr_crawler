@@ -12,7 +12,6 @@ class JdSpider(scrapy.Spider):
     allowed_domains = [
         "jd.com",
         'p.3.cn',    # price json
-        'm.360buyimg.com',   # json  from    m.jd.com
     ]
     start_urls = [
         # 'https://list.jd.com/list.html?cat=9987,653,655'
