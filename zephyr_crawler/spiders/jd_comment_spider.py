@@ -126,16 +126,16 @@ class JdCommentSpider(scrapy.Spider):
         if not items:
             logger.error('This page(%s) has no items' %response.url)
         for item_jsn in items:
-            # if self.is_exist(item_jsn['commentId']):
-            #     # this comment has already crawled then stop crawl this ware
-            #     return
+            if self.is_exist(item_jsn['commentId']):
+                # this comment has already crawled then stop crawl this ware
+                return
             item = JdCommentItem() 
             item['comment_id'] = item_jsn['commentId']
             item['comment_data'] = item_jsn['commentData']
             item['comment_date'] = item_jsn['commentDate']
             item['ware_id'] = wareid
-            print item
-            # yield item
+            # print item
+            yield item
 
         '''
         if now_page < total_page + 1:
