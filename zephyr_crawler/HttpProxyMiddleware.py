@@ -139,7 +139,6 @@ class HttpProxyMiddleware(object):
         将request设置使用为当前的或下一个有效代理
         """
         proxy = self.proxyes[self.proxy_index]
-        print self.proxyes
         if not proxy["valid"]:
             self.inc_proxy_index()
             proxy = self.proxyes[self.proxy_index]
@@ -148,7 +147,6 @@ class HttpProxyMiddleware(object):
             self.last_no_proxy_time = datetime.now()
 
         if proxy["proxy"]:
-            print '\n\nproxy set: %s\n' % proxy["proxy"]
             request.meta["proxy"] = proxy["proxy"]
         elif "proxy" in request.meta.keys():
             del request.meta["proxy"]
@@ -165,7 +163,6 @@ class HttpProxyMiddleware(object):
             return
 
         if self.proxyes[index]["valid"]:
-            print "\ninvalidate %s\n" % self.proxyes[index]
             logger.info("invalidate %s" % self.proxyes[index])
             self.proxyes[index]["valid"] = False
             if index == self.proxy_index:
