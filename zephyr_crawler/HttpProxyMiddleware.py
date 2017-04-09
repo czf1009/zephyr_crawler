@@ -37,7 +37,7 @@ class HttpProxyMiddleware(object):
         # 上一次抓新代理的时间
         self.last_fetch_proxy_time = datetime.now()
         # 每隔固定时间强制抓取新代理(min)
-        self.fetch_proxy_interval = 120
+        self.fetch_proxy_interval = 30
         # 一个将被设为invalid的代理如果已经成功爬取大于这个参数的页面， 将不会被invalid
         self.invalid_proxy_threshold = 200
         # 从文件读取初始代理
@@ -139,6 +139,7 @@ class HttpProxyMiddleware(object):
         将request设置使用为当前的或下一个有效代理
         """
         proxy = self.proxyes[self.proxy_index]
+        print self.proxyes
         if not proxy["valid"]:
             self.inc_proxy_index()
             proxy = self.proxyes[self.proxy_index]
@@ -147,6 +148,7 @@ class HttpProxyMiddleware(object):
             self.last_no_proxy_time = datetime.now()
 
         if proxy["proxy"]:
+            print '\n\nproxy set: %s\n' % proxy["proxy"]
             request.meta["proxy"] = proxy["proxy"]
         elif "proxy" in request.meta.keys():
             del request.meta["proxy"]
