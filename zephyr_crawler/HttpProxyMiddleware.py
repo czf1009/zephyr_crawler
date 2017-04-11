@@ -215,7 +215,7 @@ class HttpProxyMiddleware(object):
         if response.status != 200 \
                 and (not hasattr(spider, "website_possible_httpstatus_list") \
                              or response.status not in spider.website_possible_httpstatus_list):
-            logger.info("response status not in spider.website_possible_httpstatus_list")
+            logger.info("response status:%s not in spider.website_possible_httpstatus_list"% response.status)
             self.invalid_proxy(request.meta["proxy_index"])
             new_request = request.copy()
             new_request.dont_filter = True
@@ -243,4 +243,6 @@ class HttpProxyMiddleware(object):
             new_request = request.copy()
             new_request.dont_filter = True
             return new_request
+        else:
+            print '\nexception is : %s' % exception
 
