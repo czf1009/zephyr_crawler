@@ -5,14 +5,17 @@ import logging
 from datetime import datetime, timedelta
 from twisted.web._newclient import ResponseNeverReceived
 from twisted.internet.defer import TimeoutError as UserTimeoutError
-from twisted.internet.error import TimeoutError as ServerTimeoutError, ConnectionRefusedError, ConnectError
+from twisted.internet.error import TimeoutError as ServerTimeoutError, \
+    ConnectionRefusedError, ConnectError,ConnectionLost
 import fetch_free_proxyes
 
 logger = logging.getLogger(__name__)
 
 class HttpProxyMiddleware(object):
     # 遇到这些类型的错误直接当做代理不可用处理掉, 不再传给retrymiddleware
-    DONT_RETRY_ERRORS = (UserTimeoutError,ServerTimeoutError, ConnectionRefusedError, ResponseNeverReceived, ConnectError, ValueError)
+    DONT_RETRY_ERRORS = (UserTimeoutError,ServerTimeoutError, \
+        ConnectionRefusedError, ResponseNeverReceived, ConnectError, \
+        ValueError, ConnectionLost)
 
     def __init__(self, settings):
         # 保存上次不用代理直接连接的时间点
