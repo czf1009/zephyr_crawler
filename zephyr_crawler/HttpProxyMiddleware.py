@@ -244,5 +244,5 @@ class HttpProxyMiddleware(object):
             new_request.dont_filter = True
             return new_request
         else:
-            print '\nexception is : %s' % exception
+            logger.error('\nexception is : %s' % exception)
 
