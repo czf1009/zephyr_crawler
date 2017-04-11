@@ -4,14 +4,15 @@ import os
 import logging
 from datetime import datetime, timedelta
 from twisted.web._newclient import ResponseNeverReceived
-from twisted.internet.error import TimeoutError, ConnectionRefusedError, ConnectError
+from twisted.internet.defer import TimeoutError as UserTimeoutError
+from twisted.internet.error import TimeoutError as ServerTimeoutError, ConnectionRefusedError, ConnectError
 import fetch_free_proxyes
 
 logger = logging.getLogger(__name__)
 
 class HttpProxyMiddleware(object):
     # 遇到这些类型的错误直接当做代理不可用处理掉, 不再传给retrymiddleware
-    DONT_RETRY_ERRORS = (TimeoutError, ConnectionRefusedError, ResponseNeverReceived, ConnectError, ValueError)
+    DONT_RETRY_ERRORS = (UserTimeoutError,ServerTimeoutError, ConnectionRefusedError, ResponseNeverReceived, ConnectError, ValueError)
 
     def __init__(self, settings):
         # 保存上次不用代理直接连接的时间点
@@ -232,6 +233,8 @@ class HttpProxyMiddleware(object):
 
         # 只有当proxy_index>fixed_proxy-1时才进行比较, 这样能保证至少本地直连是存在的.
         if isinstance(exception, self.DONT_RETRY_ERRORS):
+            logger.debug('process_exception.isinstance.')
+            logger.debug(exception)
             if request_proxy_index > self.fixed_proxy - 1 and self.invalid_proxy_flag: # WARNING 直连时超时的话换个代理还是重试? 这是策略问题
                 if self.proxyes[request_proxy_index]["count"] < self.invalid_proxy_threshold:
                     self.invalid_proxy(request_proxy_index)
@@ -243,6 +246,3 @@ class HttpProxyMiddleware(object):
             new_request = request.copy()
             new_request.dont_filter = True
             return new_request
-        else:
-            logger.error('\nexception is : %s' % exception)
-
