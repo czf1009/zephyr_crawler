@@ -72,11 +72,11 @@ class JdCommentSpider(scrapy.Spider):
         # yield scrapy.Request(url=url,headers={'referer':None},callback=self.item)
 
         url = 'https://item.m.jd.com/newComments/newCommentsDetail.json?wareId=%s&offset=1&num=1&type=0&checkParam=LUIPPTP&evokeType='
-        # for wareid in wareids:
-        #     wareid = wareid[0]
-        #     yield scrapy.Request(url=url%wareid,meta={'wareid':wareid},dont_filter=True,callback=self.get_comment_total_page)
+        for wareid in wareids:
+            wareid = wareid[0]
+            yield scrapy.Request(url=url%wareid,meta={'wareid':wareid},dont_filter=True,callback=self.get_comment_total_page)
 
-        yield scrapy.Request(url='https://item.m.jd.com/newComments/newCommentsDetail.json?wareId=%s&offset=1&num=1&type=0&checkParam=LUIPPTP&evokeType='%11732620240,meta={'wareid':11732620240},dont_filter=True,callback=self.get_comment_total_page)
+        # yield scrapy.Request(url='https://item.m.jd.com/newComments/newCommentsDetail.json?wareId=%s&offset=1&num=1&type=0&checkParam=LUIPPTP&evokeType='%11732620240,meta={'wareid':11732620240},dont_filter=True,callback=self.get_comment_total_page)
 
 
 
