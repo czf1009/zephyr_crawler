@@ -2,7 +2,7 @@
 
 for j in 256 192 128 64 32 16 8 4 1
 do
-	set_name="set/setting_"${j}
+	set_name="set/setting_"${j}".py"
 	cp $set_name zephyr_crawler/settings.py
 	echo '#####################  Thread number'$j>> test.log
 	echo '########'$j>> banggo.log
