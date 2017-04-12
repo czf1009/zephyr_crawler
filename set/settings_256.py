@@ -1,16 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for zephyr_crawler project
-#
-# For simplicity, this file contains only settings considered important or
-# commonly used. You can find more settings consulting the documentation:
-#
-#     http://doc.scrapy.org/en/latest/topics/settings.html
-#     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
-#     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
-
-# Configure maximum concurrent requests performed by Scrapy (default: 16)
-CONCURRENT_REQUESTS = 8
+CONCURRENT_REQUESTS = 256
 
 BOT_NAME = 'zephyr_crawler'
 
@@ -28,6 +18,21 @@ RETRY_TIMES = 30
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
+COOKIES_ENABLED = False
+
+DEFAULT_REQUEST_HEADERS = {
+    'accept': 'image/webp,*/*;q=0.8',
+    'accept-language': 'zh-CN,zh;q=0.8',
+    'user-agent': 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36',
+}
+DOWNLOADER_MIDDLEWARES = {
+    'zephyr_crawler.middlewares.UserAgentMiddleware': 401,
+    'zephyr_crawler.HttpProxyMiddleware.HttpProxyMiddleware': 543,
+    'zephyr_crawler.middlewares.ProxyMiddleware': None
+}
+ITEM_PIPELINES = {
+   'zephyr_crawler.pipelines.CommonPipeline': 300,
+}
 
 # Configure a delay for requests for the same website (default: 0)
 # See http://scrapy.readthedocs.org/en/latest/topics/settings.html#download-delay
@@ -37,9 +42,6 @@ ROBOTSTXT_OBEY = True
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
 
-# Disable cookies (enabled by default)
-COOKIES_ENABLED = False
-
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
 
@@ -48,11 +50,6 @@ COOKIES_ENABLED = False
 #   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
 #   'Accept-Language': 'en',
 #}
-DEFAULT_REQUEST_HEADERS = {
-    'accept': 'image/webp,*/*;q=0.8',
-    'accept-language': 'zh-CN,zh;q=0.8',
-    'user-agent': 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36',
-}
 
 
 # Enable or disable spider middlewares
@@ -63,12 +60,7 @@ DEFAULT_REQUEST_HEADERS = {
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
-DOWNLOADER_MIDDLEWARES = {
-    'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware': 350,
-    'zephyr_crawler.middlewares.UserAgentMiddleware': 401,
-    'zephyr_crawler.HttpProxyMiddleware.HttpProxyMiddleware': 543,
-    'zephyr_crawler.middlewares.ProxyMiddleware': None
-}
+
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
@@ -78,9 +70,7 @@ DOWNLOADER_MIDDLEWARES = {
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-   'zephyr_crawler.pipelines.CommonPipeline': 300,
-}
+
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html

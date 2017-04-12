@@ -26,8 +26,6 @@ DEFAULT_REQUEST_HEADERS = {
     'user-agent': 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36',
 }
 DOWNLOADER_MIDDLEWARES = {
-    'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware': 350,
-    'scrapy.contrib.downloadermiddleware.retry.RetryMiddleware': 351,
     'zephyr_crawler.middlewares.UserAgentMiddleware': 401,
     'zephyr_crawler.HttpProxyMiddleware.HttpProxyMiddleware': 543,
     'zephyr_crawler.middlewares.ProxyMiddleware': None
