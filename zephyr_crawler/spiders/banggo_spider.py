@@ -75,7 +75,7 @@ class BanggoSpider(scrapy.Spider):
                 break
         if not cel:
             logging.error('%s get script faild!' % response.url)
-            with open(response.url.split('/')[-1],'w') as f:
+            with open('error_page/'+response.url.split('/')[-1],'w') as f:
                 f.write(response.body)
             return
         #Delete note in code
