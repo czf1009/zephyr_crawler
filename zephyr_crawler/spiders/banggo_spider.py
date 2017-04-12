@@ -68,6 +68,7 @@ class BanggoSpider(scrapy.Spider):
             yield req
 
         #Get target cel
+        cel = ''
         for i in response.xpath("//script/text()").extract():
             if 'outerid' in i:
                 cel = re.search('{[\s\S]*}',i,0).group(0)
