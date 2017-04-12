@@ -237,7 +237,6 @@ class HttpProxyMiddleware(object):
         # 只有当proxy_index>fixed_proxy-1时才进行比较, 这样能保证至少本地直连是存在的.
         if isinstance(exception, self.DONT_RETRY_ERRORS):
             logger.debug('process_exception.isinstance.')
-            logger.debug(exception)
             if request_proxy_index > self.fixed_proxy - 1 and self.invalid_proxy_flag: # WARNING 直连时超时的话换个代理还是重试? 这是策略问题
                 if self.proxyes[request_proxy_index]["count"] < self.invalid_proxy_threshold:
                     self.invalid_proxy(request_proxy_index)
@@ -249,3 +248,5 @@ class HttpProxyMiddleware(object):
             new_request = request.copy()
             new_request.dont_filter = True
             return new_request
+        else:
+            logger.warning('exception not in DONT_RETRY_ERRORS,exception type is %s' % type(exception))
