@@ -16,6 +16,7 @@ class BanggoSpider(scrapy.Spider):
     custom_settings = {
         'COOKIES_DEBUG': False,
         'COOKIES_ENABLED': False,
+        'DUPEFILTER_DEBUG': True,
         'ROBOTSTXT_OBEY': False,
         'ITEM_PIPELINES': {
             'zephyr_crawler.pipelines.CommonPipeline': 500
