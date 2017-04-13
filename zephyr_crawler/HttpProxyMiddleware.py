@@ -35,7 +35,7 @@ class HttpProxyMiddleware(object):
         # 初始化代理列表
         self.proxyes = [{"proxy": None, "valid": True, "count": 0}]
         # 初始时使用0号代理(即无代理)
-        self.proxy_index = 0
+        self.proxy_index = 1
         # 表示可信代理的数量(如自己搭建的HTTP代理)+1(不用代理直接连接)
         self.fixed_proxy = len(self.proxyes)
         # 上一次抓新代理的时间
@@ -44,6 +44,8 @@ class HttpProxyMiddleware(object):
         self.fetch_proxy_interval = 30
         # 一个将被设为invalid的代理如果已经成功爬取大于这个参数的页面， 将不会被invalid
         self.invalid_proxy_threshold = 200
+        # 任务开始时先爬取代理
+        self.fetch_new_proxyes()
         # 从文件读取初始代理
         if os.path.exists(self.proxy_file):
             with open(self.proxy_file, "r") as fd:
@@ -116,6 +118,9 @@ class HttpProxyMiddleware(object):
         assert self.proxyes[0]["valid"]
         while True:
             self.proxy_index = (self.proxy_index + 1) % len(self.proxyes)
+            # 设置一直使用代理
+            if self.proxy_index == 0:
+                self.proxy_index = self.proxy_index + 1
             if self.proxyes[self.proxy_index]["valid"]:
                 break
 
