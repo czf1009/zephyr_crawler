@@ -145,7 +145,7 @@ class HttpProxyMiddleware(object):
 
     def set_proxy(self, request):
         """
-        将request设置使用为当前的或下一个有效代理
+        #将request设置使用为当前的或下一个有效代理
         proxy = self.proxyes[self.proxy_index]
         if not proxy["valid"]:
             self.inc_proxy_index()

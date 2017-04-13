@@ -1,6 +1,6 @@
-/banggo.log
+*.log
 *.pyc
+*.json
 /sql
 /proxyes.dat
-/jd.json
-/test.json
+/error_page
