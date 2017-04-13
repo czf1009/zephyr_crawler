@@ -7,6 +7,8 @@ import re
 import logging
 ###
 
+logger = logging.getLogger(__name__)
+
 class BanggoSpider(scrapy.Spider):
     name = "banggo"
     allowed_domains = ["banggo.com"]
@@ -46,7 +48,7 @@ class BanggoSpider(scrapy.Spider):
         total_page_num = int(re.search('currentPage=(\d*)',total_page_num).group(1))
         for i in range(1,total_page_num+1):
             url = 'http://search.banggo.com/search/a_a.shtml?avn=1&currentPage=%d' % i
-            yield scrapy.Request(url=url, callback=self.catelog)
+            yield scrapy.Request(url=url, callback=self.catelog, priority=1)
 
     def catelog(self, response):
         if not response.body:
@@ -55,6 +57,7 @@ class BanggoSpider(scrapy.Spider):
             req = response.request
             req.meta["change_proxy"] = True
             yield req
+            return
 
         for li in response.xpath('//div[@class="mbshop_pdList"]/ul/li'):
             link = li.xpath('a[1]/@href').extract_first()
@@ -62,11 +65,11 @@ class BanggoSpider(scrapy.Spider):
 
 
     def getItem(self,response):
-
         if response.body == "banned":
             req = response.request
             req.meta["change_proxy"] = True
             yield req
+            return
 
         #Get target cel
         cel = ''
@@ -74,11 +77,17 @@ class BanggoSpider(scrapy.Spider):
             if 'outerid' in i:
                 cel = re.search('{[\s\S]*}',i,0).group(0)
                 break
+
+        # Unauthorised then change proxy
         if not cel:
-            logging.error('%s get script faild!' % response.url)
+            logger.error('%s get script faild!' % response.url)
             with open('error_page/'+response.url.split('/')[-1],'w') as f:
                 f.write(response.body)
+            req = response.request
+            req.meta["change_proxy"] = True
+            yield req
             return
+
         #Delete note in code
         for i in re.findall(" //.*",cel):
             cel = cel.replace(i,'')
