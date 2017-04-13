@@ -146,11 +146,14 @@ class HttpProxyMiddleware(object):
     def set_proxy(self, request):
         """
         将request设置使用为当前的或下一个有效代理
-        """
         proxy = self.proxyes[self.proxy_index]
         if not proxy["valid"]:
             self.inc_proxy_index()
             proxy = self.proxyes[self.proxy_index]
+        """
+        # 每次都移至下一个代理
+        self.inc_proxy_index()
+        proxy = self.proxyes[self.proxy_index]
 
         if self.proxy_index == 0: # 每次不用代理直接下载时更新self.last_no_proxy_time
             self.last_no_proxy_time = datetime.now()
@@ -196,11 +199,11 @@ class HttpProxyMiddleware(object):
     def process_request(self, request, spider):
         """
         将request设置为使用代理
-        """
         if self.proxy_index > 0  and datetime.now() > (self.last_no_proxy_time + timedelta(minutes=self.recover_interval)):
             logger.info("After %d minutes later, recover from using proxy" % self.recover_interval)
             self.last_no_proxy_time = datetime.now()
             self.proxy_index = 0
+        """
         request.meta["dont_redirect"] = True  # 有些代理会把请求重定向到一个莫名其妙的地址
 
         # spider发现parse error, 要求更换代理
