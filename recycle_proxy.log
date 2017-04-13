@@ -15500,3 +15500,183 @@
 2017-04-13 22:06:37 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://106.92.97.4:8118
 2017-04-13 22:06:42 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/856991.shtml> (failed 1 times): User timeout caused connection failure: Getting http://www.banggo.com/goods/856991.shtml took longer than 10.0 seconds..
 2017-04-13 22:06:42 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://61.191.173.31:808
+2017-04-13 22:06:48 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/850680.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:06:48 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://221.216.94.77:808
+2017-04-13 22:06:54 [zephyr_crawler.HttpProxyMiddleware] DEBUG: http://106.14.32.21:80 200 http://www.banggo.com/goods/850679.shtml
+2017-04-13 22:06:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.banggo.com/goods/850679.shtml> (referer: http://search.banggo.com/search/a_a.shtml?avn=1&currentPage=151)
+2017-04-13 22:06:54 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://114.139.23.59:20379
+2017-04-13 22:06:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.banggo.com/goods/850679.shtml>
+{'body': '{\\"subCategoryID\\": \\"17\\", \\"loc\\": \\"http://www.banggo.com/goods/850679.shtml\\", \\"svipprice\\": \\"215\\", \\"brand\\": \\"connive\\", \\"name\\": \\"\\\\u79cb\\\\u51ac\\\\u6b3e\\\\u4f11\\\\u95f2\\\\u767e\\\\u642d\\\\u4fee\\\\u8eab\\\\u6b3e\\\\u7eaf\\\\u8272\\\\u897f\\\\u88e41\\\\u670816\\\\u65e5\\\\u505c\\\\u6b62\\\\u53d1\\\\u8d27\\\\uff0c2\\\\u67087\\\\u65e5\\\\u6062\\\\u590d\\\\u53d1\\\\u8d27 \\\\u5e7f\\\\u4e1c\\\\u770117\\\\u65e5\\\\u505c\\\\u6b62\\\\u301014\\\\u5929\\\\u9000\\\\u6362\\\\u3011\\", \\"price\\": \\"215\\", \\"description\\": \\"\\", \\"vipprice\\": \\"215\\", \\"value\\": \\"629\\", \\"categoryID\\": \\"3\\", \\"ThirdCategoryName\\": \\"\\\\u897f\\\\u88e4\\", \\"subCategoryName\\": \\"\\\\u88e4\\\\u88c5\\", \\"stock\\": \\"349\\", \\"image\\": \\"http://pic4.banggo.com/sources/images/goods/TP/850679/850679_00--w_500.jpg\\", \\"ThirdCategoryID\\": \\"123\\", \\"outerid\\": \\"850679\\", \\"categoryName\\": \\"\\\\u7537\\\\u88c5\\"}',
+ 'lable': u'good'}
+2017-04-13 22:06:57 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857421.shtml> (failed 1 times): Connection was refused by other side: 111: Connection refused.
+2017-04-13 22:06:57 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://114.95.30.182:49203
+2017-04-13 22:06:58 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/850677.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:06:58 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://119.5.0.18:808
+2017-04-13 22:07:01 [zephyr_crawler.HttpProxyMiddleware] DEBUG: http://106.92.97.4:8118 200 http://www.banggo.com/goods/857420.shtml
+2017-04-13 22:07:01 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.banggo.com/goods/857420.shtml> (referer: http://search.banggo.com/search/a_a.shtml?avn=1&currentPage=153)
+2017-04-13 22:07:01 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://114.95.204.74:48233
+2017-04-13 22:07:01 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.banggo.com/goods/857420.shtml>
+{'body': '{\\"subCategoryID\\": \\"53\\", \\"loc\\": \\"http://www.banggo.com/goods/857420.shtml\\", \\"svipprice\\": \\"215\\", \\"brand\\": \\"asleery\\", \\"name\\": \\"\\\\u65f6\\\\u5c1a\\\\u79cb\\\\u51ac\\\\u65b0\\\\u6b3e\\\\u4e2a\\\\u6027\\\\u4f11\\\\u95f2\\\\u978b\\\\u301014\\\\u5929\\\\u9000\\\\u6362\\\\u3011\\", \\"price\\": \\"215\\", \\"description\\": \\"\\", \\"vipprice\\": \\"215\\", \\"value\\": \\"288\\", \\"categoryID\\": \\"9\\", \\"ThirdCategoryName\\": \\"\\\\u4f11\\\\u95f2\\\\u978b\\", \\"subCategoryName\\": \\"\\\\u6210\\\\u4eba\\\\u978b\\", \\"stock\\": \\"1193\\", \\"image\\": \\"http://pic3.banggo.com/sources/images/goods/TP/857420/857420_00--w_500.jpg\\", \\"ThirdCategoryID\\": \\"394\\", \\"outerid\\": \\"857420\\", \\"categoryName\\": \\"\\\\u978b\\"}',
+ 'lable': u'good'}
+2017-04-13 22:07:03 [zephyr_crawler.HttpProxyMiddleware] DEBUG: http://61.191.173.31:808 200 http://www.banggo.com/goods/857417.shtml
+2017-04-13 22:07:03 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.banggo.com/goods/857417.shtml> (referer: http://search.banggo.com/search/a_a.shtml?avn=1&currentPage=153) ['partial']
+2017-04-13 22:07:03 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://183.78.183.156:82
+2017-04-13 22:07:03 [zephyr_crawler.spiders.banggo_spider] ERROR: This proxy(http://61.191.173.31:808) was Unauthorized.
+2017-04-13 22:07:03 [scrapy.dupefilters] DEBUG: Filtered duplicate request: <GET http://www.banggo.com/goods/857417.shtml>
+2017-04-13 22:07:03 [zephyr_crawler.spiders.banggo_spider] ERROR: http://www.banggo.com/goods/857417.shtml get script faild!
+2017-04-13 22:07:05 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/850676.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:07:05 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://122.140.237.0:40878
+2017-04-13 22:07:05 [zephyr_crawler.HttpProxyMiddleware] DEBUG: http://221.216.94.77:808 200 http://www.banggo.com/goods/857416.shtml
+2017-04-13 22:07:05 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.banggo.com/goods/857416.shtml> (referer: http://search.banggo.com/search/a_a.shtml?avn=1&currentPage=153) ['partial']
+2017-04-13 22:07:05 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://27.159.126.250:8118
+2017-04-13 22:07:05 [zephyr_crawler.spiders.banggo_spider] ERROR: This proxy(http://221.216.94.77:808) was Unauthorized.
+2017-04-13 22:07:05 [scrapy.dupefilters] DEBUG: Filtered duplicate request: <GET http://www.banggo.com/goods/857416.shtml>
+2017-04-13 22:07:05 [zephyr_crawler.spiders.banggo_spider] ERROR: http://www.banggo.com/goods/857416.shtml get script faild!
+2017-04-13 22:07:08 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857409.shtml> (failed 1 times): 500 Internal Server Error
+2017-04-13 22:07:08 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://113.4.149.15:44521
+2017-04-13 22:07:09 [zephyr_crawler.HttpProxyMiddleware] DEBUG: http://114.139.23.59:20379 200 http://www.banggo.com/goods/857414.shtml
+2017-04-13 22:07:09 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.banggo.com/goods/857414.shtml> (referer: http://search.banggo.com/search/a_a.shtml?avn=1&currentPage=153)
+2017-04-13 22:07:09 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://115.196.15.38:40603
+2017-04-13 22:07:09 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.banggo.com/goods/857414.shtml>
+{'body': '{\\"subCategoryID\\": \\"24\\", \\"loc\\": \\"http://www.banggo.com/goods/857414.shtml\\", \\"svipprice\\": \\"249\\", \\"brand\\": \\"\\\\u9762\\\\u671d\\\\u5927\\\\u6d77\\", \\"name\\": \\"\\\\u7eaf\\\\u8272\\\\u4e2d\\\\u957f\\\\u6b3e\\\\u9488\\\\u7ec7\\\\u886b\\\\u5973\\\\u5f0f\\\\u6bdb\\\\u8863\\\\u5916\\\\u5957\\\\u5f00\\\\u886b\\\\u301014\\\\u5929\\\\u9000\\\\u6362\\\\u3011\\", \\"price\\": \\"249\\", \\"description\\": \\"\\", \\"vipprice\\": \\"249\\", \\"value\\": \\"375\\", \\"categoryID\\": \\"4\\", \\"ThirdCategoryName\\": \\"\\\\u5f00\\\\u886b\\\\u6bdb\\\\u8863\\", \\"subCategoryName\\": \\"\\\\u6bdb\\\\u8863\\", \\"stock\\": \\"19\\", \\"image\\": \\"http://pic2.banggo.com/sources/images/goods/TP/857414/857414_00--w_500.jpg\\", \\"ThirdCategoryID\\": \\"166\\", \\"outerid\\": \\"857414\\", \\"categoryName\\": \\"\\\\u5973\\\\u88c5\\"}',
+ 'lable': u'good'}
+2017-04-13 22:07:09 [zephyr_crawler.HttpProxyMiddleware] DEBUG: http://122.140.237.0:40878 200 http://www.banggo.com/goods/857407.shtml
+2017-04-13 22:07:09 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.banggo.com/goods/857407.shtml> (referer: http://search.banggo.com/search/a_a.shtml?avn=1&currentPage=153)
+2017-04-13 22:07:09 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://211.65.228.178:8080
+2017-04-13 22:07:09 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.banggo.com/goods/857407.shtml>
+{'body': '{\\"subCategoryID\\": \\"24\\", \\"loc\\": \\"http://www.banggo.com/goods/857407.shtml\\", \\"svipprice\\": \\"216\\", \\"brand\\": \\"\\\\u9762\\\\u671d\\\\u5927\\\\u6d77\\", \\"name\\": \\"\\\\u6b27\\\\u7f8e\\\\u98ce\\\\u65f6\\\\u5c1a\\\\u5957\\\\u5934\\\\u4e2a\\\\u6027\\\\u7cfb\\\\u5e26\\\\u6bdb\\\\u8863\\\\u301014\\\\u5929\\\\u9000\\\\u6362\\\\u3011\\", \\"price\\": \\"216\\", \\"description\\": \\"\\", \\"vipprice\\": \\"216\\", \\"value\\": \\"324\\", \\"categoryID\\": \\"4\\", \\"ThirdCategoryName\\": \\"\\\\u5957\\\\u5934\\\\u6bdb\\\\u8863\\", \\"subCategoryName\\": \\"\\\\u6bdb\\\\u8863\\", \\"stock\\": \\"20\\", \\"image\\": \\"http://pic4.banggo.com/sources/images/goods/TP/857407/857407_00--w_500.jpg\\", \\"ThirdCategoryID\\": \\"168\\", \\"outerid\\": \\"857407\\", \\"categoryName\\": \\"\\\\u5973\\\\u88c5\\"}',
+ 'lable': u'good'}
+2017-04-13 22:07:13 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857404.shtml> (failed 1 times): [<twisted.python.failure.Failure twisted.internet.error.ConnectionDone: Connection was closed cleanly.>, <twisted.python.failure.Failure twisted.web.http._DataLoss: >]
+2017-04-13 22:07:13 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://110.154.191.154:44367
+2017-04-13 22:07:14 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857403.shtml> (failed 1 times): An error occurred while connecting: 113: No route to host.
+2017-04-13 22:07:14 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://144.0.99.48:56099
+2017-04-13 22:07:15 [zephyr_crawler.HttpProxyMiddleware] DEBUG: http://115.196.15.38:40603 200 http://www.banggo.com/goods/857402.shtml
+2017-04-13 22:07:15 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.banggo.com/goods/857402.shtml> (referer: http://search.banggo.com/search/a_a.shtml?avn=1&currentPage=153)
+2017-04-13 22:07:15 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://119.179.29.130:10242
+2017-04-13 22:07:15 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.banggo.com/goods/857402.shtml>
+{'body': '{\\"subCategoryID\\": \\"26\\", \\"loc\\": \\"http://www.banggo.com/goods/857402.shtml\\", \\"svipprice\\": \\"270\\", \\"brand\\": \\"\\\\u9762\\\\u671d\\\\u5927\\\\u6d77\\", \\"name\\": \\"\\\\u5bbd\\\\u677e\\\\u663e\\\\u7626\\\\u7acb\\\\u9886\\\\u4e2d\\\\u957f\\\\u6b3e\\\\u5973\\\\u5f0f\\\\u98ce\\\\u8863\\\\u5927\\\\u8863\\\\u301014\\\\u5929\\\\u9000\\\\u6362\\\\u3011\\", \\"price\\": \\"270\\", \\"description\\": \\"\\", \\"vipprice\\": \\"270\\", \\"value\\": \\"405\\", \\"categoryID\\": \\"4\\", \\"ThirdCategoryName\\": \\"\\\\u98ce\\\\u8863\\", \\"subCategoryName\\": \\"\\\\u5916\\\\u5957\\", \\"stock\\": \\"19\\", \\"image\\": \\"http://pic4.banggo.com/sources/images/goods/TP/857402/857402_00--w_500.jpg\\", \\"ThirdCategoryID\\": \\"171\\", \\"outerid\\": \\"857402\\", \\"categoryName\\": \\"\\\\u5973\\\\u88c5\\"}',
+ 'lable': u'good'}
+2017-04-13 22:07:15 [scrapy.extensions.logstats] INFO: Crawled 1875 pages (at 7 pages/min), scraped 1587 items (at 5 items/min)
+2017-04-13 22:07:16 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857413.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:07:16 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://220.179.97.74:40036
+2017-04-13 22:07:16 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857412.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:07:16 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://27.188.42.156:19748
+2017-04-13 22:07:17 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857410.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:07:17 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://222.75.107.165:50299
+2017-04-13 22:07:26 [zephyr_crawler.HttpProxyMiddleware] DEBUG: http://27.188.42.156:19748 200 http://www.banggo.com/goods/857395.shtml
+2017-04-13 22:07:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.banggo.com/goods/857395.shtml> (referer: http://search.banggo.com/search/a_a.shtml?avn=1&currentPage=153)
+2017-04-13 22:07:26 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://122.190.30.147:32029
+2017-04-13 22:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.banggo.com/goods/857395.shtml>
+{'body': '{\\"subCategoryID\\": \\"26\\", \\"loc\\": \\"http://www.banggo.com/goods/857395.shtml\\", \\"svipprice\\": \\"298\\", \\"brand\\": \\"\\\\u9762\\\\u671d\\\\u5927\\\\u6d77\\", \\"name\\": \\"\\\\u4fee\\\\u8eab\\\\u663e\\\\u7626\\\\u767d\\\\u8272\\\\u68c9\\\\u670d\\\\u77ed\\\\u6b3e\\\\u5973\\\\u5f0f\\\\u68c9\\\\u8863\\\\u5916\\\\u5957\\\\u301014\\\\u5929\\\\u9000\\\\u6362\\\\u3011\\", \\"price\\": \\"298\\", \\"description\\": \\"\\", \\"vipprice\\": \\"298\\", \\"value\\": \\"447\\", \\"categoryID\\": \\"4\\", \\"ThirdCategoryName\\": \\"\\\\u68c9\\\\u670d\\", \\"subCategoryName\\": \\"\\\\u5916\\\\u5957\\", \\"stock\\": \\"19\\", \\"image\\": \\"http://pic2.banggo.com/sources/images/goods/TP/857395/857395_00--w_500.jpg\\", \\"ThirdCategoryID\\": \\"174\\", \\"outerid\\": \\"857395\\", \\"categoryName\\": \\"\\\\u5973\\\\u88c5\\"}',
+ 'lable': u'good'}
+2017-04-13 22:07:26 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857401.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:07:26 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://110.178.148.178:25410
+2017-04-13 22:07:27 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857400.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:07:27 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://58.18.65.129:14640
+2017-04-13 22:07:28 [zephyr_crawler.HttpProxyMiddleware] DEBUG: http://122.190.30.147:32029 200 http://www.banggo.com/goods/857393.shtml
+2017-04-13 22:07:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.banggo.com/goods/857393.shtml> (referer: http://search.banggo.com/search/a_a.shtml?avn=1&currentPage=153)
+2017-04-13 22:07:28 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://218.19.16.215:44845
+2017-04-13 22:07:28 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.banggo.com/goods/857393.shtml>
+{'body': '{\\"subCategoryID\\": \\"26\\", \\"loc\\": \\"http://www.banggo.com/goods/857393.shtml\\", \\"svipprice\\": \\"538\\", \\"brand\\": \\"\\\\u9762\\\\u671d\\\\u5927\\\\u6d77\\", \\"name\\": \\"\\\\u53cc\\\\u6392\\\\u6263\\\\u4e2d\\\\u957f\\\\u6b3e\\\\u5973\\\\u5f0f\\\\u4fee\\\\u8eab\\\\u5462\\\\u5b50\\\\u5927\\\\u8863\\\\u98ce\\\\u8863\\\\u5916\\\\u5957\\\\u5973\\\\u301014\\\\u5929\\\\u9000\\\\u6362\\\\u3011\\", \\"price\\": \\"538\\", \\"description\\": \\"\\", \\"vipprice\\": \\"538\\", \\"value\\": \\"807\\", \\"categoryID\\": \\"4\\", \\"ThirdCategoryName\\": \\"\\\\u98ce\\\\u8863\\", \\"subCategoryName\\": \\"\\\\u5916\\\\u5957\\", \\"stock\\": \\"20\\", \\"image\\": \\"http://pic1.banggo.com/sources/images/goods/TP/857393/857393_00--w_500.jpg\\", \\"ThirdCategoryID\\": \\"171\\", \\"outerid\\": \\"857393\\", \\"categoryName\\": \\"\\\\u5973\\\\u88c5\\"}',
+ 'lable': u'good'}
+2017-04-13 22:07:29 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857399.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:07:29 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://122.140.191.153:44271
+2017-04-13 22:07:30 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857391.shtml> (failed 1 times): Connection was refused by other side: 111: Connection refused.
+2017-04-13 22:07:30 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://119.165.190.117:40305
+2017-04-13 22:07:31 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857398.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:07:31 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://116.235.33.183:45579
+2017-04-13 22:07:32 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857396.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:07:32 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://222.137.70.217:47256
+2017-04-13 22:07:34 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857394.shtml> (failed 1 times): User timeout caused connection failure: Getting http://www.banggo.com/goods/857394.shtml took longer than 10.0 seconds..
+2017-04-13 22:07:34 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://223.198.65.21:27855
+2017-04-13 22:07:38 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857392.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:07:38 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://175.20.52.217:36497
+2017-04-13 22:07:38 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857309.shtml> (failed 1 times): Connection was refused by other side: 111: Connection refused.
+2017-04-13 22:07:38 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://180.119.111.112:13206
+2017-04-13 22:07:42 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857390.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:07:42 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://222.64.155.31:29369
+2017-04-13 22:07:44 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857389.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:07:44 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://113.228.85.53:49547
+2017-04-13 22:07:46 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857388.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:07:46 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://42.85.82.54:33667
+2017-04-13 22:07:46 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857298.shtml> (failed 1 times): An error occurred while connecting: 113: No route to host.
+2017-04-13 22:07:46 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://188.26.200.117:8089
+2017-04-13 22:07:50 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857308.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:07:50 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://222.220.130.20:46511
+2017-04-13 22:07:50 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857252.shtml> (failed 1 times): An error occurred while connecting: 113: No route to host.
+2017-04-13 22:07:50 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://180.170.186.185:25468
+2017-04-13 22:07:51 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857307.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:07:51 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://58.57.225.127:54791
+2017-04-13 22:07:55 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857265.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:07:55 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://119.116.227.18:46270
+2017-04-13 22:07:59 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857247.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:07:59 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://122.7.196.83:19491
+2017-04-13 22:08:01 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857197.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:08:01 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://49.64.233.209:29704
+2017-04-13 22:08:03 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857196.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:08:03 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://111.72.221.79:54837
+2017-04-13 22:08:05 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857195.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:08:05 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://42.226.174.9:36544
+2017-04-13 22:08:07 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857161.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:08:07 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://101.67.96.127:15965
+2017-04-13 22:08:09 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857160.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:08:09 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://117.43.1.167:808
+2017-04-13 22:08:11 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/863147.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:08:11 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://112.249.33.185:29945
+2017-04-13 22:08:13 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/863146.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:08:13 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://115.225.107.51:21877
+2017-04-13 22:08:15 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857467.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:08:15 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://139.189.176.175:35334
+2017-04-13 22:08:15 [scrapy.extensions.logstats] INFO: Crawled 1877 pages (at 2 pages/min), scraped 1589 items (at 2 items/min)
+2017-04-13 22:08:17 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857466.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:08:17 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://125.111.78.43:34715
+2017-04-13 22:08:19 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857465.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:08:19 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://1.70.81.229:16352
+2017-04-13 22:08:20 [zephyr_crawler.HttpProxyMiddleware] DEBUG: http://125.111.78.43:34715 200 http://www.banggo.com/goods/857459.shtml
+2017-04-13 22:08:20 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.banggo.com/goods/857459.shtml> (referer: http://search.banggo.com/search/a_a.shtml?avn=1&currentPage=154)
+2017-04-13 22:08:20 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://116.27.130.91:53570
+2017-04-13 22:08:20 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.banggo.com/goods/857459.shtml>
+{'body': '{\\"subCategoryID\\": \\"53\\", \\"loc\\": \\"http://www.banggo.com/goods/857459.shtml\\", \\"svipprice\\": \\"265\\", \\"brand\\": \\"asleery\\", \\"name\\": \\"\\\\u660e\\\\u661f\\\\u540c\\\\u6b3e\\\\u4e2d\\\\u5e2e\\\\u53cd\\\\u7ed2\\\\u76ae\\\\u7537\\\\u978b\\\\u301014\\\\u5929\\\\u9000\\\\u6362\\\\u3011\\", \\"price\\": \\"265\\", \\"description\\": \\"\\", \\"vipprice\\": \\"265\\", \\"value\\": \\"288\\", \\"categoryID\\": \\"9\\", \\"ThirdCategoryName\\": \\"\\\\u4f11\\\\u95f2\\\\u978b\\", \\"subCategoryName\\": \\"\\\\u6210\\\\u4eba\\\\u978b\\", \\"stock\\": \\"2098\\", \\"image\\": \\"http://pic3.banggo.com/sources/images/goods/TP/857459/857459_00--w_500.jpg\\", \\"ThirdCategoryID\\": \\"394\\", \\"outerid\\": \\"857459\\", \\"categoryName\\": \\"\\\\u978b\\"}',
+ 'lable': u'good'}
+2017-04-13 22:08:21 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857464.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:08:21 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://114.93.136.229:57565
+2017-04-13 22:08:22 [zephyr_crawler.HttpProxyMiddleware] DEBUG: http://116.27.130.91:53570 200 http://www.banggo.com/goods/857457.shtml
+2017-04-13 22:08:22 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.banggo.com/goods/857457.shtml> (referer: http://search.banggo.com/search/a_a.shtml?avn=1&currentPage=154)
+2017-04-13 22:08:22 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://1.20.176.149:8080
+2017-04-13 22:08:22 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.banggo.com/goods/857457.shtml>
+{'body': '{\\"subCategoryID\\": \\"53\\", \\"loc\\": \\"http://www.banggo.com/goods/857457.shtml\\", \\"svipprice\\": \\"285\\", \\"brand\\": \\"asleery\\", \\"name\\": \\"\\\\u660e\\\\u661f\\\\u540c\\\\u6b3e\\\\u4e2d\\\\u5e2e\\\\u53cd\\\\u7ed2\\\\u76ae\\\\u7537\\\\u978b\\\\u301014\\\\u5929\\\\u9000\\\\u6362\\\\u3011\\", \\"price\\": \\"285\\", \\"description\\": \\"\\", \\"vipprice\\": \\"285\\", \\"value\\": \\"288\\", \\"categoryID\\": \\"9\\", \\"ThirdCategoryName\\": \\"\\\\u4f11\\\\u95f2\\\\u978b\\", \\"subCategoryName\\": \\"\\\\u6210\\\\u4eba\\\\u978b\\", \\"stock\\": \\"1399\\", \\"image\\": \\"http://pic2.banggo.com/sources/images/goods/TP/857457/857457_00--w_500.jpg\\", \\"ThirdCategoryID\\": \\"394\\", \\"outerid\\": \\"857457\\", \\"categoryName\\": \\"\\\\u978b\\"}',
+ 'lable': u'good'}
+2017-04-13 22:08:23 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857463.shtml> (failed 1 times): User timeout caused connection failure: Getting http://www.banggo.com/goods/857463.shtml took longer than 10.0 seconds..
+2017-04-13 22:08:23 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://124.218.3.207:16343
+2017-04-13 22:08:25 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857462.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:08:25 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://111.127.249.10:10589
+2017-04-13 22:08:25 [zephyr_crawler.HttpProxyMiddleware] DEBUG: http://124.218.3.207:16343 200 http://www.banggo.com/goods/857454.shtml
+2017-04-13 22:08:25 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.banggo.com/goods/857454.shtml> (referer: http://search.banggo.com/search/a_a.shtml?avn=1&currentPage=154)
+2017-04-13 22:08:25 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://61.179.95.161:25771
+2017-04-13 22:08:25 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.banggo.com/goods/857454.shtml>
+{'body': '{\\"subCategoryID\\": \\"53\\", \\"loc\\": \\"http://www.banggo.com/goods/857454.shtml\\", \\"svipprice\\": \\"285\\", \\"brand\\": \\"asleery\\", \\"name\\": \\"\\\\u7537\\\\u58eb\\\\u4e2d\\\\u5e2e\\\\u5e03\\\\u6d1b\\\\u514b\\\\u96d5\\\\u82b1\\\\u4f11\\\\u95f2\\\\u978b\\\\u301014\\\\u5929\\\\u9000\\\\u6362\\\\u3011\\", \\"price\\": \\"285\\", \\"description\\": \\"\\", \\"vipprice\\": \\"285\\", \\"value\\": \\"288\\", \\"categoryID\\": \\"9\\", \\"ThirdCategoryName\\": \\"\\\\u4f11\\\\u95f2\\\\u978b\\", \\"subCategoryName\\": \\"\\\\u6210\\\\u4eba\\\\u978b\\", \\"stock\\": \\"2100\\", \\"image\\": \\"http://pic1.banggo.com/sources/images/goods/TP/857454/857454_00--w_500.jpg\\", \\"ThirdCategoryID\\": \\"394\\", \\"outerid\\": \\"857454\\", \\"categoryName\\": \\"\\\\u978b\\"}',
+ 'lable': u'good'}
+2017-04-13 22:08:26 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857453.shtml> (failed 1 times): An error occurred while connecting: 113: No route to host.
+2017-04-13 22:08:26 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://120.83.100.9:54772
+2017-04-13 22:08:27 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857461.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:08:27 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://200.196.230.174:8080
+2017-04-13 22:08:28 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857460.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:08:28 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://39.70.209.190:38649
+2017-04-13 22:08:31 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857458.shtml> (failed 1 times): User timeout caused connection failure: Getting http://www.banggo.com/goods/857458.shtml took longer than 10.0 seconds..
+2017-04-13 22:08:31 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://183.16.85.22:47240
+2017-04-13 22:08:33 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857456.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:08:33 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://171.116.47.135:52838
+2017-04-13 22:08:33 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857455.shtml> (failed 1 times): User timeout caused connection failure: Getting http://www.banggo.com/goods/857455.shtml took longer than 10.0 seconds..
+2017-04-13 22:08:33 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://182.122.27.106:31974
+2017-04-13 22:08:36 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857452.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:08:36 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://122.5.160.46:37410
+2017-04-13 22:08:37 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857451.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:08:37 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://183.163.237.187:38594
+2017-04-13 22:08:37 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857439.shtml> (failed 1 times): Connection was refused by other side: 111: Connection refused.
+2017-04-13 22:08:37 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://218.59.83.120:38924
+2017-04-13 22:08:38 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857450.shtml> (failed 1 times): User timeout caused connection failure: Getting http://www.banggo.com/goods/857450.shtml took longer than 10.0 seconds..
+2017-04-13 22:08:38 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://163.179.252.207:36249
+2017-04-13 22:08:39 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857449.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:08:39 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://113.227.177.110:21242
+2017-04-13 22:08:41 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://www.banggo.com/goods/857448.shtml> (failed 1 times): User timeout caused connection failure.
+2017-04-13 22:08:41 [zephyr_crawler.HttpProxyMiddleware] INFO: now using new proxy: http://27.195.167.11:19692
