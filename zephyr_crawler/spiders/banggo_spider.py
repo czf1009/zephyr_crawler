@@ -39,27 +39,39 @@ class BanggoSpider(scrapy.Spider):
         ]
 
     def parse(self, response):
-        '''
-        url = 'http://www.banggo.com/goods/882065.shtml'
-        yield scrapy.Request(url=url, callback=self.getItem)
-        '''
         #　Get total page num
         total_page_num = response.xpath(u'//a[text()="尾 页"]/@href').extract_first()
+        if not total_page_num:
+            logger.error('%s get total_page_num faild!' % response.url)
+            with open('error_page/'+'total_page.html','w') as f:
+                f.write(response.body)
+            req = response.request
+            req.meta["change_proxy"] = True
+            req.dont_filter= True
+            yield req
+            return
         total_page_num = int(re.search('currentPage=(\d*)',total_page_num).group(1))
+
         for i in range(1,total_page_num+1):
             url = 'http://search.banggo.com/search/a_a.shtml?avn=1&currentPage=%d' % i
             yield scrapy.Request(url=url, callback=self.catelog, priority=1)
 
     def catelog(self, response):
-        if not response.body:
-            inspect_response(response, self)
-        elif response.body == "banned":
+        item_li = response.xpath('//div[@class="mbshop_pdList"]/ul/li')
+        
+        # Unauthorised then change proxy
+        if not item_li:
+            logger.error('%s get item_li faild!' % response.url)
+            with open('error_page/'+response.url.split('&')[-1],'w') as f:
+                f.write(response.body)
             req = response.request
             req.meta["change_proxy"] = True
+            req.dont_filter = True
+            req.priority=1
             yield req
             return
 
-        for li in response.xpath('//div[@class="mbshop_pdList"]/ul/li'):
+        for li in item_li:
             link = li.xpath('a[1]/@href').extract_first()
             yield scrapy.Request(link, callback=self.getItem)
 
@@ -85,6 +97,7 @@ class BanggoSpider(scrapy.Spider):
                 f.write(response.body)
             req = response.request
             req.meta["change_proxy"] = True
+            req.dont_filter = True
             yield req
             return
 

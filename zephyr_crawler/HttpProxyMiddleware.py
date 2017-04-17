@@ -136,7 +136,7 @@ class HttpProxyMiddleware(object):
             logger.info("valid proxy < threshold: %d/%d" % (self.len_valid_proxy(), self.extend_proxy_threshold))
             self.fetch_new_proxyes()
 
-        logger.info("now using new proxy: %s" % self.proxyes[self.proxy_index]["proxy"])
+        logger.debug("now using new proxy: %s" % self.proxyes[self.proxy_index]["proxy"])
 
         # 一定时间没更新后可能出现了在目前的代理不断循环不断验证码错误的情况, 强制抓取新代理
         #if datetime.now() > self.last_fetch_proxy_time + timedelta(minutes=self.fetch_proxy_interval):
@@ -175,7 +175,7 @@ class HttpProxyMiddleware(object):
             return
 
         if self.proxyes[index]["valid"]:
-            logger.info("invalidate %s" % self.proxyes[index])
+            logger.debug("invalidate %s" % self.proxyes[index])
             self.proxyes[index]["valid"] = False
             if index == self.proxy_index:
                 self.inc_proxy_index()
@@ -189,7 +189,7 @@ class HttpProxyMiddleware(object):
         """
         if self.dump_count_threshold <= 0:
             return
-        logger.info("dumping proxyes to file")
+        logger.debug("dumping proxyes to file")
         with open(self.proxy_file, "w") as fd:
             for i in range(self.fixed_proxy, len(self.proxyes)):
                 p = self.proxyes[i]

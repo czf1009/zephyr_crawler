@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-CONCURRENT_REQUESTS = 256
+CONCURRENT_REQUESTS = 192
 
 BOT_NAME = 'zephyr_crawler'
 
@@ -20,16 +20,19 @@ ROBOTSTXT_OBEY = True
 
 COOKIES_ENABLED = False
 
+DOWNLOADER_MIDDLEWARES = {
+    'zephyr_crawler.middlewares.UserAgentMiddleware': 400,
+    'scrapy.downloadermiddlewares.retry.RetryMiddleware': 500,
+    'zephyr_crawler.HttpProxyMiddleware.HttpProxyMiddleware': 750,
+    'zephyr_crawler.middlewares.ProxyMiddleware': None
+}
+
 DEFAULT_REQUEST_HEADERS = {
     'accept': 'image/webp,*/*;q=0.8',
     'accept-language': 'zh-CN,zh;q=0.8',
     'user-agent': 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36',
 }
-DOWNLOADER_MIDDLEWARES = {
-    'zephyr_crawler.HttpProxyMiddleware.HttpProxyMiddleware': 499,
-    'zephyr_crawler.middlewares.UserAgentMiddleware': 600,
-    'zephyr_crawler.middlewares.ProxyMiddleware': None
-}
+
 ITEM_PIPELINES = {
    'zephyr_crawler.pipelines.CommonPipeline': 300,
 }
