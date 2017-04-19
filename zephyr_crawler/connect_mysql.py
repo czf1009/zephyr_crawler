@@ -2,7 +2,7 @@ import MySQLdb
 def connect_mysql():
     try:
         conn = MySQLdb.connect(
-            host='106.14.29.134', user='user_test', passwd='test', db='app_test', port=3306, charset='utf8')
+            host='172.31.238.60', user='user_gust', passwd='gust', db='app_test', port=3306, charset='utf8')
         conn.ping(True)
         cur = conn.cursor()
         return (conn,cur)
