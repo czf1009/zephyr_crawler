@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-CONCURRENT_REQUESTS = 192
+CONCURRENT_REQUESTS = 256
 
 BOT_NAME = 'zephyr_crawler'
 
