@@ -1,5 +1,6 @@
 # coding:utf8
 import scrapy
+from scrapy_redis.spiders import RedisSpider
 from zephyr_crawler.items import JdCommentItem
 from scrapy.shell import inspect_response
 import json
@@ -9,26 +10,27 @@ import logging
 ###
 
 logger = logging.getLogger(__name__)
-class JdCommentSpider(scrapy.Spider):
+class JdCommentSpider(RedisSpider):
     name = "jd_comment"
     allowed_domains = [
         "jd.com",
         'storage.360buyimg.com',
         'jd.hk'
     ]
-    start_urls = [
-        # 'https://www.baidu.com'
-        # 'https://list.jd.com/list.html?cat=9987,653,655'
-        # 'https://so.m.jd.com/ware/searchList.action?_format_=json&stock=0&sort=&&page=1&keyword=手机'
-        # 'https://item.jd.com/4139518.html'
-        # 'https://item.jd.com/10921539206.html'
-        # 'https://m.jd.com/'
-        'https://item.m.jd.com/product/10921539206.html',
-        # 'https://mitem.jd.hk/ware/view.action?wareId=1965454177&cachekey=2127aa99b875ed7f3813b40ec2f0304e'
-        # 'https://mitem.jd.hk/ware/view.action?wareId=1965454177&cachekey=4758942049d3c727312910e8670c10f1'
-        # 'https://so.m.jd.com/ware/search.action?keyword=手机'
-        # 'https://item.m.jd.com/newComments/newCommentsDetail.json?wareId=3499302&offset=2&num=10&type=0&checkParam=LUIPPTP&evokeType='
-    ]
+    # start_urls = [
+    #     # 'https://www.baidu.com'
+    #     # 'https://list.jd.com/list.html?cat=9987,653,655'
+    #     # 'https://so.m.jd.com/ware/searchList.action?_format_=json&stock=0&sort=&&page=1&keyword=手机'
+    #     # 'https://item.jd.com/4139518.html'
+    #     # 'https://item.jd.com/10921539206.html'
+    #     # 'https://m.jd.com/'
+    #     'https://item.m.jd.com/product/10921539206.html',
+    #     # 'https://mitem.jd.hk/ware/view.action?wareId=1965454177&cachekey=2127aa99b875ed7f3813b40ec2f0304e'
+    #     # 'https://mitem.jd.hk/ware/view.action?wareId=1965454177&cachekey=4758942049d3c727312910e8670c10f1'
+    #     # 'https://so.m.jd.com/ware/search.action?keyword=手机'
+    #     # 'https://item.m.jd.com/newComments/newCommentsDetail.json?wareId=3499302&offset=2&num=10&type=0&checkParam=LUIPPTP&evokeType='
+    # ]
+    redis_key = 'jd_commentspider:start_urls'
     custom_settings = {
         # 'COOKIES_DEBUG': True,
         'COOKIES_ENABLED': True,

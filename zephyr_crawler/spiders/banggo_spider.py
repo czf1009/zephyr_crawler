@@ -1,5 +1,6 @@
 #coding:utf8
 import scrapy
+from scrapy_redis.spiders import RedisSpider
 from zephyr_crawler.items import CommonItem
 from scrapy.shell import inspect_response
 import json
@@ -9,20 +10,18 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-class BanggoSpider(scrapy.Spider):
+class BanggoSpider(RedisSpider):
     name = "banggo"
     allowed_domains = ["banggo.com"]
-    start_urls = [
-        'http://search.banggo.com/search/a_a.shtml?avn=1&currentPage=1'
-    ]
+    # start_urls = [
+    #     'http://search.banggo.com/search/a_a.shtml?avn=1&currentPage=1'
+    # ]
+    redis_key = 'banggospider:start_urls'
     custom_settings = {
         'COOKIES_DEBUG': False,
         'COOKIES_ENABLED': False,
         'DUPEFILTER_DEBUG': True,
         'ROBOTSTXT_OBEY': False,
-        'ITEM_PIPELINES': {
-            'zephyr_crawler.pipelines.CommonPipeline': 500
-        },
         'DEPTH_LIMIT': 0,
         # 'DOWNLOAD_DELAY': 1,
         # 'REDIRECT_ENABLED': False,

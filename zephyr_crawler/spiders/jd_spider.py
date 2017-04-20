@@ -1,5 +1,6 @@
 # coding:utf8
 import scrapy
+from scrapy_redis.spiders import RedisSpider
 from zephyr_crawler.items import CommonItem
 from scrapy.shell import inspect_response
 import json
@@ -7,18 +8,19 @@ import re
 ###
 
 
-class JdSpider(scrapy.Spider):
+class JdSpider(RedisSpider):
     name = "jd"
     allowed_domains = [
         "jd.com",
         'p.3.cn',    # price json
     ]
-    start_urls = [
-        # 'https://list.jd.com/list.html?cat=9987,653,655'
-        'https://so.m.jd.com/ware/searchList.action?_format_=json&stock=0&sort=&&page=1&keyword=手机'
-        # 'https://item.jd.com/4139518.html'
-        # 'https://item.jd.com/10921539206.html'
-    ]
+    # start_urls = [
+    #     # 'https://list.jd.com/list.html?cat=9987,653,655'
+    #     'https://so.m.jd.com/ware/searchList.action?_format_=json&stock=0&sort=&&page=1&keyword=手机'
+    #     # 'https://item.jd.com/4139518.html'
+    #     # 'https://item.jd.com/10921539206.html'
+    # ]
+    redis_key = 'jdspider:start_urls'
     custom_settings = {
         # 'COOKIES_DEBUG': True,
         # 'COOKIES_ENABLED': True,

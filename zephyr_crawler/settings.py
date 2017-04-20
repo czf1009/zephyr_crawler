@@ -1,5 +1,26 @@
 # -*- coding: utf-8 -*-
 
+# Scrapy-redis Settings
+# 
+
+# REDIS_HOST = 'localhost'
+# REDIS_PORT = 6379
+REDIS_URL = 'redis://172.31.238.60:6379'
+DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
+SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+# Don't cleanup redis queues, allows to pause/resume crawls.
+#SCHEDULER_PERSIST = True
+SCHEDULER_QUEUE_CLASS = "scrapy_redis.queue.SpiderPriorityQueue"
+#SCHEDULER_QUEUE_CLASS = "scrapy_redis.queue.SpiderQueue"
+#SCHEDULER_QUEUE_CLASS = "scrapy_redis.queue.SpiderStack"
+
+# ITEM_PIPELINES = {
+#     'example.pipelines.ExamplePipeline': 300,
+#     'scrapy_redis.pipelines.RedisPipeline': 400,
+# }
+
+
+# Normal Settings
 CONCURRENT_REQUESTS = 256
 
 BOT_NAME = 'zephyr_crawler'
@@ -23,7 +44,7 @@ COOKIES_ENABLED = False
 DOWNLOADER_MIDDLEWARES = {
     'zephyr_crawler.middlewares.UserAgentMiddleware': 400,
     'scrapy.downloadermiddlewares.retry.RetryMiddleware': 500,
-    'zephyr_crawler.HttpProxyMiddleware.HttpProxyMiddleware': 750,
+    # 'zephyr_crawler.HttpProxyMiddleware.HttpProxyMiddleware': 750,
     'zephyr_crawler.middlewares.ProxyMiddleware': None
 }
 
