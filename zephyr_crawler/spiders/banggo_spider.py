@@ -42,8 +42,8 @@ class BanggoSpider(RedisSpider):
         total_page_num = response.xpath(u'//a[text()="尾 页"]/@href').extract_first()
         if not total_page_num:
             logger.error('%s get total_page_num faild!' % response.url)
-            with open('error_page/'+'total_page.html','w') as f:
-                f.write(response.body)
+            # with open('error_page/'+'total_page.html','w') as f:
+            #     f.write(response.body)
             req = response.request
             req.meta["change_proxy"] = True
             req.dont_filter= True
