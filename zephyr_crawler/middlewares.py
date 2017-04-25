@@ -10,6 +10,7 @@ import math
 import threading
 import time
 import logging
+import base64
 
 from connect_mysql import connect_mysql
 
@@ -298,6 +299,15 @@ class ProxyMiddleware(object):
             new_request.dont_filter = True
             return new_request
 
+
+
+class AbuyunProxyMiddleware(object):
+    def process_request(self, request, spider):
+        proxy = "http://proxy.abuyun.com:9020"
+        request.meta['proxy'] = proxy
+        proxy_user_pass = "H4H8OH48A812175D:F8E9722718E0C593"
+        encoded_user_pass = base64.encodestring(proxy_user_pass)
+        request.headers['Proxy-Authorization'] = 'Basic ' + encoded_user_pass
 
 if __name__ == '__main__':
     # print '============================='

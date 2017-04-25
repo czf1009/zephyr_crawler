@@ -44,7 +44,8 @@ COOKIES_ENABLED = False
 DOWNLOADER_MIDDLEWARES = {
     'zephyr_crawler.middlewares.UserAgentMiddleware': 400,
     'scrapy.downloadermiddlewares.retry.RetryMiddleware': 500,
-    'zephyr_crawler.HttpProxyMiddleware.HttpProxyMiddleware': 750,
+    'zephyr_crawler.HttpProxyMiddleware.HttpProxyMiddleware': None,
+    'zephyr_crawler.middlewares.AbuyunProxyMiddleware': 750,
     'zephyr_crawler.middlewares.ProxyMiddleware': None
 }
 
