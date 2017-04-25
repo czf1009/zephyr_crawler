@@ -19,7 +19,7 @@ SCHEDULER_QUEUE_CLASS = "scrapy_redis.queue.SpiderPriorityQueue"
 #     'scrapy_redis.pipelines.RedisPipeline': 400,
 # }
 
-DOWNLOAD_DELAY = 0.2
+DOWNLOAD_DELAY = 0.5
 
 # Normal Settings
 CONCURRENT_REQUESTS = 256
