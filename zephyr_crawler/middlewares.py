@@ -305,7 +305,7 @@ class AbuyunProxyMiddleware(object):
     def process_request(self, request, spider):
         proxy = "http://proxy.abuyun.com:9020"
         request.meta['proxy'] = proxy
-        proxy_user_pass = "H4H8OH48A812175D:F8E9722718E0C593"
+        proxy_user_pass = "H23005OS2165K50D:5CDC06F7FDB03EE5"
         encoded_user_pass = base64.encodestring(proxy_user_pass)
         request.headers['Proxy-Authorization'] = 'Basic ' + encoded_user_pass
 
