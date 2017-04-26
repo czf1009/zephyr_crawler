@@ -3,9 +3,9 @@
 # Scrapy-redis Settings
 # 
 
-# REDIS_HOST = 'localhost'
-# REDIS_PORT = 6379
-REDIS_URL = 'redis://172.31.238.60:6379'
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+# REDIS_URL = 'redis://172.31.238.60:6379'
 DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 SCHEDULER = "scrapy_redis.scheduler.Scheduler"
 # Don't cleanup redis queues, allows to pause/resume crawls.
@@ -18,6 +18,8 @@ SCHEDULER_QUEUE_CLASS = "scrapy_redis.queue.SpiderPriorityQueue"
 #     'example.pipelines.ExamplePipeline': 300,
 #     'scrapy_redis.pipelines.RedisPipeline': 400,
 # }
+
+RETRY_HTTP_CODES = [500, 502, 503, 504, 400, 408, 429]
 
 DOWNLOAD_DELAY = 0.5
 

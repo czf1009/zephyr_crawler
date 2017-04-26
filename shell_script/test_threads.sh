@@ -9,7 +9,7 @@ do
 	sleep 60;
 	while true
 	do
-		if [ `redis-cli EXISTS banggo:requests` -eq 0 ];then
+		if [ `grep -P '/min' banggo.log|tail -n 1|sed -e "s/.* \(.*\) pages.*/\1/g"` -eq 0 ];then
 			break;
 		else
 			sleep 1;
