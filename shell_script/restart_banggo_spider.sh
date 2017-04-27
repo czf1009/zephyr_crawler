@@ -1,14 +1,14 @@
 scrapys=`ps -ef|grep scrapy|grep -v grep|awk '{print $2}'`
-logname="banggo_"$(date +%Y%m%d_%H:%M:%S)".log"
+logname="banggo_"$(date +%Y%m%d_%H%M%S)".log"
 echo "len_scrapys: "$len_scrapys
 if [ $scrapys ];then
 	kill ${scrapys[0]}
-	for i in 1 2 3 4 5 6 7 8
+	for i in {1..15}
 	do
 		echo `ps -ef|grep scrapy|grep -v grep|awk '{print $2}'`
 		if [ `ps -ef|grep scrapy|grep -v grep|awk '{print $2}'` ];then
 			sleep 1;
-		elif [ $i -eq 8 ];then
+		elif [ $i -eq 15 ];then
 			echo 'kill scrapy failed! please check is scrapy runing.'
 			exit
 		else

@@ -41,7 +41,7 @@ class BanggoSpider(RedisSpider):
         #　Get total page num
         total_page_num = response.xpath(u'//a[text()="尾 页"]/@href').extract_first()
         if not total_page_num:
-            logger.error('%s get total_page_num faild!' % response.url)
+            logger.debug('%s get total_page_num faild!' % response.url)
             # with open('error_page/'+'total_page.html','w') as f:
             #     f.write(response.body)
             req = response.request
@@ -53,20 +53,20 @@ class BanggoSpider(RedisSpider):
 
         for i in range(1,total_page_num+1):
             url = 'http://search.banggo.com/search/a_a.shtml?avn=1&currentPage=%d' % i
-            yield scrapy.Request(url=url, callback=self.catelog, priority=1)
+            yield scrapy.Request(url=url, callback=self.catelog, priority=10)
 
     def catelog(self, response):
         item_li = response.xpath('//div[@class="mbshop_pdList"]/ul/li')
         
         # Unauthorised then change proxy
         if not item_li:
-            logger.error('%s get item_li faild!' % response.url)
+            logger.debug('%s get item_li faild!' % response.url)
             with open('error_page/'+response.url.split('&')[-1],'w') as f:
                 f.write(response.body)
             req = response.request
             req.meta["change_proxy"] = True
             req.dont_filter = True
-            req.priority=1
+            req.priority=11
             yield req
             return
 
@@ -91,7 +91,7 @@ class BanggoSpider(RedisSpider):
 
         # Unauthorised then change proxy
         if not cel:
-            logger.error('%s get script faild!' % response.url)
+            logger.debug('%s get script faild!' % response.url)
             with open('error_page/'+response.url.split('/')[-1],'w') as f:
                 f.write(response.body)
             req = response.request
