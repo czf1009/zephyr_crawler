@@ -1,7 +1,7 @@
 scrapys=`ps -ef|grep scrapy|grep -v grep|awk '{print $2}'`
 logname="banggo_"$(date +%Y%m%d_%H%M%S)".log"
 if [ $scrapys ];then
-	kill ${scrapys[0]}
+	kill  -9 ${scrapys[0]}
 	for i in {1..15}
 	do
 		if [ `ps -ef|grep scrapy|grep -v grep|awk '{print $2}'` ];then
