@@ -1,5 +1,6 @@
 #!/bin/bash
 
+log_file=`ls banggo*|tail -n 1`
 for i in 1 2 3 4 5
 do
 	echo '################'$i'times#############'>> test.log
@@ -9,7 +10,7 @@ do
 	sleep 60;
 	while true
 	do
-		if [ `grep -P '/min' banggo.log|tail -n 1|sed -e "s/.* \(.*\) pages.*/\1/g"` -eq 0 ];then
+		if [ `grep -P '/min' $log_file|tail -n 1|sed -e "s/.* \(.*\) pages.*/\1/g"` -eq 0 ];then
 			break;
 		else
 			sleep 1;
