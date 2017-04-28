@@ -19,7 +19,7 @@ SCHEDULER_QUEUE_CLASS = "scrapy_redis.queue.SpiderPriorityQueue"
 #     'scrapy_redis.pipelines.RedisPipeline': 400,
 # }
 
-RETRY_HTTP_CODES = [500, 502, 503, 504, 400, 408, 429]
+RETRY_HTTP_CODES = [500, 502, 503, 504, 400, 408, 429, 302, 403]
 # DEPTH_PRIORITY = 2
 RETRY_PRIORITY_ADJUST = +1
 
