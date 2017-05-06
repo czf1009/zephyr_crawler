@@ -23,7 +23,7 @@ RETRY_HTTP_CODES = [500, 502, 503, 504, 400, 408, 429, 302, 403]
 # DEPTH_PRIORITY = 2
 RETRY_PRIORITY_ADJUST = +1
 
-DOWNLOAD_DELAY = 0.5
+#DOWNLOAD_DELAY = 0.5
 
 # Normal Settings
 CONCURRENT_REQUESTS = 256
@@ -50,7 +50,7 @@ DOWNLOADER_MIDDLEWARES = {
     'zephyr_crawler.middlewares.UserAgentMiddleware': 400,
     'scrapy.downloadermiddlewares.retry.RetryMiddleware': 500,
     'zephyr_crawler.HttpProxyMiddleware.HttpProxyMiddleware': None,
-    'zephyr_crawler.middlewares.AbuyunProxyMiddleware': 750,
+    'zephyr_crawler.middlewares.AbuyunProxyMiddleware': None,
     'zephyr_crawler.middlewares.ProxyMiddleware': None
 }
 
@@ -105,11 +105,11 @@ ITEM_PIPELINES = {
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
 # 
-# AUTOTHROTTLE_ENABLED = True
+AUTOTHROTTLE_ENABLED = True
 # # The initial download delay
-# AUTOTHROTTLE_START_DELAY = 5
+AUTOTHROTTLE_START_DELAY = 5
 # # The maximum download delay to be set in case of high latencies
-# AUTOTHROTTLE_MAX_DELAY = 60
+AUTOTHROTTLE_MAX_DELAY = 60
 # 
 # The average number of requests Scrapy should be sending in parallel to
 # each remote server

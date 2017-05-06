@@ -14,10 +14,10 @@ if [ $scrapys ];then
 			break
 		fi
 	done
-	scrapy crawl banggo -s LOG_FILE=$logname >> test.log&
+	scrapy crawl banggo -s LOG_FILE=$logname >> banggo.log&
 	echo 'start scrapy success.'
 else
 	echo "No scrapy runing."
-	scrapy crawl banggo -s LOG_FILE=$logname >> test.log&
+	scrapy crawl banggo -s LOG_FILE=$logname >> banggo.log&
 	echo 'start scrapy success.'
 fi
