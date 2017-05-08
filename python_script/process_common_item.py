@@ -1,9 +1,10 @@
 #coding:utf8
 import time
 import MySQLdb
-import sys
 import json
-from zephyr_crawler.connect_mysql import connect_mysql
+import sys
+sys.path.append("..")
+from zephyr_crawler.zephyr_crawler.connect_mysql import connect_mysql
 
 # Common processor
 class CommonItem(object):
